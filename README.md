@@ -10,4 +10,4 @@ import 'package:unofficial_chat_gpt_open_api/unofficial_chat_gpt_open_api.dart';
 
 ## Additional information
 
-- Use these APIs safely and responsibly. Any further information on the following [link](https://beta.openai.com/docs/usage-policies).
+Use these APIs safely and responsibly. Any further information on the following [link](https://beta.openai.com/docs/usage-policies).
