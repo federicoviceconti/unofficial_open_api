@@ -8,7 +8,7 @@ class CompletionRequest with _$CompletionRequest {
     required final String prompt,
     required final int maxTokens,
     final String? model,
-    final int? temperature,
+    @Default(0) final int temperature,
   }) = _CompletionRequest;
 }
 
