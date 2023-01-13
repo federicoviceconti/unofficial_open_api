@@ -25,4 +25,4 @@ For more information the sample app into the /example folder.
 
 ## Additional information
 
-- Use these APIs safely and responsibly. Any further information on the following [link](https://beta.openai.com/docs/usage-policies).
+Use these APIs safely and responsibly. Any further information on the following [link](https://beta.openai.com/docs/usage-policies).
