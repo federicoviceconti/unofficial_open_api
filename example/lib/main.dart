@@ -105,8 +105,7 @@ class ExampleOpenAI extends ConsumerWidget {
   void _completion(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).createCompletion(
           const CompletionRequest(
-            prompt: 'Who create the world?',
-            maxTokens: 1,
+            prompt: 'Create an email for out of office for christmas holiday',
             model: 'text-davinci-003',
             temperature: 0,
           ),

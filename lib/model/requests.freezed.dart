@@ -22,7 +22,7 @@ CompletionRequest _$CompletionRequestFromJson(Map<String, dynamic> json) {
 mixin _$CompletionRequest {
   String get prompt => throw _privateConstructorUsedError;
   @JsonKey(name: 'max_tokens')
-  int get maxTokens => throw _privateConstructorUsedError;
+  int? get maxTokens => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   int get temperature => throw _privateConstructorUsedError;
 
@@ -40,7 +40,7 @@ abstract class $CompletionRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {String prompt,
-      @JsonKey(name: 'max_tokens') int maxTokens,
+      @JsonKey(name: 'max_tokens') int? maxTokens,
       String? model,
       int temperature});
 }
@@ -59,7 +59,7 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
   @override
   $Res call({
     Object? prompt = null,
-    Object? maxTokens = null,
+    Object? maxTokens = freezed,
     Object? model = freezed,
     Object? temperature = null,
   }) {
@@ -68,10 +68,10 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
-      maxTokens: null == maxTokens
+      maxTokens: freezed == maxTokens
           ? _value.maxTokens
           : maxTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -94,7 +94,7 @@ abstract class _$$_CompletionRequestCopyWith<$Res>
   @useResult
   $Res call(
       {String prompt,
-      @JsonKey(name: 'max_tokens') int maxTokens,
+      @JsonKey(name: 'max_tokens') int? maxTokens,
       String? model,
       int temperature});
 }
@@ -111,7 +111,7 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? prompt = null,
-    Object? maxTokens = null,
+    Object? maxTokens = freezed,
     Object? model = freezed,
     Object? temperature = null,
   }) {
@@ -120,10 +120,10 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
-      maxTokens: null == maxTokens
+      maxTokens: freezed == maxTokens
           ? _value.maxTokens
           : maxTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
 class _$_CompletionRequest implements _CompletionRequest {
   const _$_CompletionRequest(
       {required this.prompt,
-      @JsonKey(name: 'max_tokens') required this.maxTokens,
+      @JsonKey(name: 'max_tokens') this.maxTokens,
       this.model,
       this.temperature = 0});
 
@@ -152,7 +152,7 @@ class _$_CompletionRequest implements _CompletionRequest {
   final String prompt;
   @override
   @JsonKey(name: 'max_tokens')
-  final int maxTokens;
+  final int? maxTokens;
   @override
   final String? model;
   @override
@@ -200,7 +200,7 @@ class _$_CompletionRequest implements _CompletionRequest {
 abstract class _CompletionRequest implements CompletionRequest {
   const factory _CompletionRequest(
       {required final String prompt,
-      @JsonKey(name: 'max_tokens') required final int maxTokens,
+      @JsonKey(name: 'max_tokens') final int? maxTokens,
       final String? model,
       final int temperature}) = _$_CompletionRequest;
 
@@ -211,7 +211,7 @@ abstract class _CompletionRequest implements CompletionRequest {
   String get prompt;
   @override
   @JsonKey(name: 'max_tokens')
-  int get maxTokens;
+  int? get maxTokens;
   @override
   String? get model;
   @override

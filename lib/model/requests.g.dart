@@ -9,7 +9,7 @@ part of 'requests.dart';
 _$_CompletionRequest _$$_CompletionRequestFromJson(Map<String, dynamic> json) =>
     _$_CompletionRequest(
       prompt: json['prompt'] as String,
-      maxTokens: json['max_tokens'] as int,
+      maxTokens: json['max_tokens'] as int?,
       model: json['model'] as String?,
       temperature: json['temperature'] as int? ?? 0,
     );

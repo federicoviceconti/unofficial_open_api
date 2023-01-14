@@ -7,7 +7,7 @@ part 'requests.g.dart';
 class CompletionRequest with _$CompletionRequest {
   const factory CompletionRequest({
     required final String prompt,
-    @JsonKey(name: 'max_tokens') required final int maxTokens,
+    @JsonKey(name: 'max_tokens') final int? maxTokens,
     final String? model,
     @Default(0) final int temperature,
   }) = _CompletionRequest;
