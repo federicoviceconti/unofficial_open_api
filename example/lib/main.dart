@@ -64,6 +64,11 @@ class ExampleOpenAI extends ConsumerWidget {
               child: const Text("Model by id"),
             ),
             const SizedBox(height: 16),
+            TextButton(
+              onPressed: () => _completion(ref),
+              child: const Text("Completion"),
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),
@@ -95,5 +100,22 @@ class ExampleOpenAI extends ConsumerWidget {
     for (final element in data) {
       log('Object id: ${element.id}');
     }
+  }
+
+  void _completion(WidgetRef ref) async {
+    final responseModels = await ref.read(openAIService).createCompletion(
+          const CompletionRequest(
+            prompt: 'Who create the world?',
+            maxTokens: 1,
+            model: 'text-davinci-003',
+            temperature: 0,
+          ),
+        );
+    if (!responseModels.isSuccessful) return;
+
+    final body = responseModels.body;
+    if (body == null) return;
+
+    log('Completion: $body');
   }
 }

@@ -1,18 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'requests.freezed.dart';
+part 'requests.g.dart';
 
-@Freezed(fromJson: false)
+@freezed
 class CompletionRequest with _$CompletionRequest {
   const factory CompletionRequest({
     required final String prompt,
-    required final int maxTokens,
+    @JsonKey(name: 'max_tokens') required final int maxTokens,
     final String? model,
     @Default(0) final int temperature,
   }) = _CompletionRequest;
+
+  factory CompletionRequest.fromJson(Map<String, Object?> json) =>
+      _$CompletionRequestFromJson(json);
 }
 
-@Freezed(fromJson: false)
+@freezed
 class EditRequest with _$EditRequest {
   const factory EditRequest({
     required final String instruction,
@@ -22,45 +26,57 @@ class EditRequest with _$EditRequest {
     final double? temperature,
     @JsonKey(name: 'top_p') final double? topP,
   }) = _EditRequest;
+
+  factory EditRequest.fromJson(Map<String, Object?> json) =>
+      _$EditRequestFromJson(json);
 }
 
-@Freezed(fromJson: false)
+@freezed
 class EmbeddingRequest with _$EmbeddingRequest {
   const factory EmbeddingRequest({
     final String? model,
     required final List<String> input,
     final String? user,
   }) = _EmbeddingRequest;
+
+  factory EmbeddingRequest.fromJson(Map<String, Object?> json) =>
+      _$EmbeddingRequestFromJson(json);
 }
 
-@Freezed(fromJson: false)
+@freezed
 class FineTuneRequest with _$FineTuneRequest {
   const factory FineTuneRequest({
-    required final String trainingFile,
-    final String? validationFile,
+    @JsonKey(name: 'training_file') required final String trainingFile,
+    @JsonKey(name: 'validation_file') final String? validationFile,
     final String? model,
     final int? nEpochs,
     final int? batchSize,
-    final double? learningRateMultiplier,
-    final double? promptLossWeight,
-    final bool? computeClassificationMetrics,
+    @JsonKey(name: 'learning_rate_multiplier') final double? learningRateMultiplier,
+    @JsonKey(name: 'prompt_loss_weight') final double? promptLossWeight,
+    @JsonKey(name: 'compute_classification_metrics') final bool? computeClassificationMetrics,
     @JsonKey(name: 'classification_n_classes')
         final int? classificationNClasses,
-    final String? classificationPositiveClass,
-    final List<double>? classificationBetas,
+    @JsonKey(name: 'classification_positive_class') final String? classificationPositiveClass,
+    @JsonKey(name: 'classification_betas') final List<double>? classificationBetas,
     final String? suffix,
   }) = _FineTuneRequest;
+
+  factory FineTuneRequest.fromJson(Map<String, Object?> json) =>
+      _$FineTuneRequestFromJson(json);
 }
 
-@Freezed(fromJson: false)
+@freezed
 class ModerationRequest with _$ModerationRequest {
   const factory ModerationRequest({
     required final String input,
     String? model,
   }) = _ModerationRequest;
+
+  factory ModerationRequest.fromJson(Map<String, Object?> json) =>
+      _$ModerationRequestFromJson(json);
 }
 
-@Freezed(fromJson: false)
+@freezed
 class ImageRequest with _$ImageRequest {
   const factory ImageRequest({
     required final String prompt,
@@ -69,4 +85,7 @@ class ImageRequest with _$ImageRequest {
     final String? user,
     @JsonKey(name: 'response_format') final int? responseFormat,
   }) = _ImageRequest;
+
+  factory ImageRequest.fromJson(Map<String, Object?> json) =>
+      _$ImageRequestFromJson(json);
 }

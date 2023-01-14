@@ -14,13 +14,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+CompletionRequest _$CompletionRequestFromJson(Map<String, dynamic> json) {
+  return _CompletionRequest.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CompletionRequest {
   String get prompt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'max_tokens')
   int get maxTokens => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   int get temperature => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CompletionRequestCopyWith<CompletionRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -32,7 +38,11 @@ abstract class $CompletionRequestCopyWith<$Res> {
           CompletionRequest value, $Res Function(CompletionRequest) then) =
       _$CompletionRequestCopyWithImpl<$Res, CompletionRequest>;
   @useResult
-  $Res call({String prompt, int maxTokens, String? model, int temperature});
+  $Res call(
+      {String prompt,
+      @JsonKey(name: 'max_tokens') int maxTokens,
+      String? model,
+      int temperature});
 }
 
 /// @nodoc
@@ -82,7 +92,11 @@ abstract class _$$_CompletionRequestCopyWith<$Res>
       __$$_CompletionRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String prompt, int maxTokens, String? model, int temperature});
+  $Res call(
+      {String prompt,
+      @JsonKey(name: 'max_tokens') int maxTokens,
+      String? model,
+      int temperature});
 }
 
 /// @nodoc
@@ -123,17 +137,21 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_CompletionRequest implements _CompletionRequest {
   const _$_CompletionRequest(
       {required this.prompt,
-      required this.maxTokens,
+      @JsonKey(name: 'max_tokens') required this.maxTokens,
       this.model,
       this.temperature = 0});
+
+  factory _$_CompletionRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_CompletionRequestFromJson(json);
 
   @override
   final String prompt;
   @override
+  @JsonKey(name: 'max_tokens')
   final int maxTokens;
   @override
   final String? model;
@@ -159,6 +177,7 @@ class _$_CompletionRequest implements _CompletionRequest {
                 other.temperature == temperature));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, prompt, maxTokens, model, temperature);
@@ -169,18 +188,29 @@ class _$_CompletionRequest implements _CompletionRequest {
   _$$_CompletionRequestCopyWith<_$_CompletionRequest> get copyWith =>
       __$$_CompletionRequestCopyWithImpl<_$_CompletionRequest>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CompletionRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CompletionRequest implements CompletionRequest {
   const factory _CompletionRequest(
       {required final String prompt,
-      required final int maxTokens,
+      @JsonKey(name: 'max_tokens') required final int maxTokens,
       final String? model,
       final int temperature}) = _$_CompletionRequest;
+
+  factory _CompletionRequest.fromJson(Map<String, dynamic> json) =
+      _$_CompletionRequest.fromJson;
 
   @override
   String get prompt;
   @override
+  @JsonKey(name: 'max_tokens')
   int get maxTokens;
   @override
   String? get model;
@@ -190,6 +220,10 @@ abstract class _CompletionRequest implements CompletionRequest {
   @JsonKey(ignore: true)
   _$$_CompletionRequestCopyWith<_$_CompletionRequest> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+EditRequest _$EditRequestFromJson(Map<String, dynamic> json) {
+  return _EditRequest.fromJson(json);
 }
 
 /// @nodoc
@@ -202,6 +236,7 @@ mixin _$EditRequest {
   @JsonKey(name: 'top_p')
   double? get topP => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EditRequestCopyWith<EditRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -336,7 +371,7 @@ class __$$_EditRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_EditRequest implements _EditRequest {
   const _$_EditRequest(
       {required this.instruction,
@@ -345,6 +380,9 @@ class _$_EditRequest implements _EditRequest {
       this.n,
       this.temperature,
       @JsonKey(name: 'top_p') this.topP});
+
+  factory _$_EditRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_EditRequestFromJson(json);
 
   @override
   final String instruction;
@@ -380,6 +418,7 @@ class _$_EditRequest implements _EditRequest {
             (identical(other.topP, topP) || other.topP == topP));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, instruction, model, input, n, temperature, topP);
@@ -389,6 +428,13 @@ class _$_EditRequest implements _EditRequest {
   @pragma('vm:prefer-inline')
   _$$_EditRequestCopyWith<_$_EditRequest> get copyWith =>
       __$$_EditRequestCopyWithImpl<_$_EditRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_EditRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _EditRequest implements EditRequest {
@@ -399,6 +445,9 @@ abstract class _EditRequest implements EditRequest {
       final int? n,
       final double? temperature,
       @JsonKey(name: 'top_p') final double? topP}) = _$_EditRequest;
+
+  factory _EditRequest.fromJson(Map<String, dynamic> json) =
+      _$_EditRequest.fromJson;
 
   @override
   String get instruction;
@@ -419,12 +468,17 @@ abstract class _EditRequest implements EditRequest {
       throw _privateConstructorUsedError;
 }
 
+EmbeddingRequest _$EmbeddingRequestFromJson(Map<String, dynamic> json) {
+  return _EmbeddingRequest.fromJson(json);
+}
+
 /// @nodoc
 mixin _$EmbeddingRequest {
   String? get model => throw _privateConstructorUsedError;
   List<String> get input => throw _privateConstructorUsedError;
   String? get user => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EmbeddingRequestCopyWith<EmbeddingRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -517,11 +571,14 @@ class __$$_EmbeddingRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_EmbeddingRequest implements _EmbeddingRequest {
   const _$_EmbeddingRequest(
       {this.model, required final List<String> input, this.user})
       : _input = input;
+
+  factory _$_EmbeddingRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_EmbeddingRequestFromJson(json);
 
   @override
   final String? model;
@@ -551,6 +608,7 @@ class _$_EmbeddingRequest implements _EmbeddingRequest {
             (identical(other.user, user) || other.user == user));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, model, const DeepCollectionEquality().hash(_input), user);
@@ -560,6 +618,13 @@ class _$_EmbeddingRequest implements _EmbeddingRequest {
   @pragma('vm:prefer-inline')
   _$$_EmbeddingRequestCopyWith<_$_EmbeddingRequest> get copyWith =>
       __$$_EmbeddingRequestCopyWithImpl<_$_EmbeddingRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_EmbeddingRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _EmbeddingRequest implements EmbeddingRequest {
@@ -567,6 +632,9 @@ abstract class _EmbeddingRequest implements EmbeddingRequest {
       {final String? model,
       required final List<String> input,
       final String? user}) = _$_EmbeddingRequest;
+
+  factory _EmbeddingRequest.fromJson(Map<String, dynamic> json) =
+      _$_EmbeddingRequest.fromJson;
 
   @override
   String? get model;
@@ -580,22 +648,34 @@ abstract class _EmbeddingRequest implements EmbeddingRequest {
       throw _privateConstructorUsedError;
 }
 
+FineTuneRequest _$FineTuneRequestFromJson(Map<String, dynamic> json) {
+  return _FineTuneRequest.fromJson(json);
+}
+
 /// @nodoc
 mixin _$FineTuneRequest {
+  @JsonKey(name: 'training_file')
   String get trainingFile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'validation_file')
   String? get validationFile => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   int? get nEpochs => throw _privateConstructorUsedError;
   int? get batchSize => throw _privateConstructorUsedError;
+  @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier => throw _privateConstructorUsedError;
+  @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight => throw _privateConstructorUsedError;
+  @JsonKey(name: 'compute_classification_metrics')
   bool? get computeClassificationMetrics => throw _privateConstructorUsedError;
   @JsonKey(name: 'classification_n_classes')
   int? get classificationNClasses => throw _privateConstructorUsedError;
+  @JsonKey(name: 'classification_positive_class')
   String? get classificationPositiveClass => throw _privateConstructorUsedError;
+  @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas => throw _privateConstructorUsedError;
   String? get suffix => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FineTuneRequestCopyWith<FineTuneRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -608,17 +688,25 @@ abstract class $FineTuneRequestCopyWith<$Res> {
       _$FineTuneRequestCopyWithImpl<$Res, FineTuneRequest>;
   @useResult
   $Res call(
-      {String trainingFile,
-      String? validationFile,
+      {@JsonKey(name: 'training_file')
+          String trainingFile,
+      @JsonKey(name: 'validation_file')
+          String? validationFile,
       String? model,
       int? nEpochs,
       int? batchSize,
-      double? learningRateMultiplier,
-      double? promptLossWeight,
-      bool? computeClassificationMetrics,
-      @JsonKey(name: 'classification_n_classes') int? classificationNClasses,
-      String? classificationPositiveClass,
-      List<double>? classificationBetas,
+      @JsonKey(name: 'learning_rate_multiplier')
+          double? learningRateMultiplier,
+      @JsonKey(name: 'prompt_loss_weight')
+          double? promptLossWeight,
+      @JsonKey(name: 'compute_classification_metrics')
+          bool? computeClassificationMetrics,
+      @JsonKey(name: 'classification_n_classes')
+          int? classificationNClasses,
+      @JsonKey(name: 'classification_positive_class')
+          String? classificationPositiveClass,
+      @JsonKey(name: 'classification_betas')
+          List<double>? classificationBetas,
       String? suffix});
 }
 
@@ -710,17 +798,25 @@ abstract class _$$_FineTuneRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String trainingFile,
-      String? validationFile,
+      {@JsonKey(name: 'training_file')
+          String trainingFile,
+      @JsonKey(name: 'validation_file')
+          String? validationFile,
       String? model,
       int? nEpochs,
       int? batchSize,
-      double? learningRateMultiplier,
-      double? promptLossWeight,
-      bool? computeClassificationMetrics,
-      @JsonKey(name: 'classification_n_classes') int? classificationNClasses,
-      String? classificationPositiveClass,
-      List<double>? classificationBetas,
+      @JsonKey(name: 'learning_rate_multiplier')
+          double? learningRateMultiplier,
+      @JsonKey(name: 'prompt_loss_weight')
+          double? promptLossWeight,
+      @JsonKey(name: 'compute_classification_metrics')
+          bool? computeClassificationMetrics,
+      @JsonKey(name: 'classification_n_classes')
+          int? classificationNClasses,
+      @JsonKey(name: 'classification_positive_class')
+          String? classificationPositiveClass,
+      @JsonKey(name: 'classification_betas')
+          List<double>? classificationBetas,
       String? suffix});
 }
 
@@ -802,26 +898,39 @@ class __$$_FineTuneRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_FineTuneRequest implements _FineTuneRequest {
   const _$_FineTuneRequest(
-      {required this.trainingFile,
-      this.validationFile,
+      {@JsonKey(name: 'training_file')
+          required this.trainingFile,
+      @JsonKey(name: 'validation_file')
+          this.validationFile,
       this.model,
       this.nEpochs,
       this.batchSize,
-      this.learningRateMultiplier,
-      this.promptLossWeight,
-      this.computeClassificationMetrics,
-      @JsonKey(name: 'classification_n_classes') this.classificationNClasses,
-      this.classificationPositiveClass,
-      final List<double>? classificationBetas,
+      @JsonKey(name: 'learning_rate_multiplier')
+          this.learningRateMultiplier,
+      @JsonKey(name: 'prompt_loss_weight')
+          this.promptLossWeight,
+      @JsonKey(name: 'compute_classification_metrics')
+          this.computeClassificationMetrics,
+      @JsonKey(name: 'classification_n_classes')
+          this.classificationNClasses,
+      @JsonKey(name: 'classification_positive_class')
+          this.classificationPositiveClass,
+      @JsonKey(name: 'classification_betas')
+          final List<double>? classificationBetas,
       this.suffix})
       : _classificationBetas = classificationBetas;
 
+  factory _$_FineTuneRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_FineTuneRequestFromJson(json);
+
   @override
+  @JsonKey(name: 'training_file')
   final String trainingFile;
   @override
+  @JsonKey(name: 'validation_file')
   final String? validationFile;
   @override
   final String? model;
@@ -830,18 +939,23 @@ class _$_FineTuneRequest implements _FineTuneRequest {
   @override
   final int? batchSize;
   @override
+  @JsonKey(name: 'learning_rate_multiplier')
   final double? learningRateMultiplier;
   @override
+  @JsonKey(name: 'prompt_loss_weight')
   final double? promptLossWeight;
   @override
+  @JsonKey(name: 'compute_classification_metrics')
   final bool? computeClassificationMetrics;
   @override
   @JsonKey(name: 'classification_n_classes')
   final int? classificationNClasses;
   @override
+  @JsonKey(name: 'classification_positive_class')
   final String? classificationPositiveClass;
   final List<double>? _classificationBetas;
   @override
+  @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas {
     final value = _classificationBetas;
     if (value == null) return null;
@@ -891,6 +1005,7 @@ class _$_FineTuneRequest implements _FineTuneRequest {
             (identical(other.suffix, suffix) || other.suffix == suffix));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -912,27 +1027,46 @@ class _$_FineTuneRequest implements _FineTuneRequest {
   @pragma('vm:prefer-inline')
   _$$_FineTuneRequestCopyWith<_$_FineTuneRequest> get copyWith =>
       __$$_FineTuneRequestCopyWithImpl<_$_FineTuneRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_FineTuneRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _FineTuneRequest implements FineTuneRequest {
   const factory _FineTuneRequest(
-      {required final String trainingFile,
-      final String? validationFile,
+      {@JsonKey(name: 'training_file')
+          required final String trainingFile,
+      @JsonKey(name: 'validation_file')
+          final String? validationFile,
       final String? model,
       final int? nEpochs,
       final int? batchSize,
-      final double? learningRateMultiplier,
-      final double? promptLossWeight,
-      final bool? computeClassificationMetrics,
+      @JsonKey(name: 'learning_rate_multiplier')
+          final double? learningRateMultiplier,
+      @JsonKey(name: 'prompt_loss_weight')
+          final double? promptLossWeight,
+      @JsonKey(name: 'compute_classification_metrics')
+          final bool? computeClassificationMetrics,
       @JsonKey(name: 'classification_n_classes')
           final int? classificationNClasses,
-      final String? classificationPositiveClass,
-      final List<double>? classificationBetas,
+      @JsonKey(name: 'classification_positive_class')
+          final String? classificationPositiveClass,
+      @JsonKey(name: 'classification_betas')
+          final List<double>? classificationBetas,
       final String? suffix}) = _$_FineTuneRequest;
 
+  factory _FineTuneRequest.fromJson(Map<String, dynamic> json) =
+      _$_FineTuneRequest.fromJson;
+
   @override
+  @JsonKey(name: 'training_file')
   String get trainingFile;
   @override
+  @JsonKey(name: 'validation_file')
   String? get validationFile;
   @override
   String? get model;
@@ -941,17 +1075,22 @@ abstract class _FineTuneRequest implements FineTuneRequest {
   @override
   int? get batchSize;
   @override
+  @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier;
   @override
+  @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight;
   @override
+  @JsonKey(name: 'compute_classification_metrics')
   bool? get computeClassificationMetrics;
   @override
   @JsonKey(name: 'classification_n_classes')
   int? get classificationNClasses;
   @override
+  @JsonKey(name: 'classification_positive_class')
   String? get classificationPositiveClass;
   @override
+  @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas;
   @override
   String? get suffix;
@@ -961,11 +1100,16 @@ abstract class _FineTuneRequest implements FineTuneRequest {
       throw _privateConstructorUsedError;
 }
 
+ModerationRequest _$ModerationRequestFromJson(Map<String, dynamic> json) {
+  return _ModerationRequest.fromJson(json);
+}
+
 /// @nodoc
 mixin _$ModerationRequest {
   String get input => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationRequestCopyWith<ModerationRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1048,9 +1192,12 @@ class __$$_ModerationRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ModerationRequest implements _ModerationRequest {
   const _$_ModerationRequest({required this.input, this.model});
+
+  factory _$_ModerationRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_ModerationRequestFromJson(json);
 
   @override
   final String input;
@@ -1071,6 +1218,7 @@ class _$_ModerationRequest implements _ModerationRequest {
             (identical(other.model, model) || other.model == model));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, input, model);
 
@@ -1080,12 +1228,22 @@ class _$_ModerationRequest implements _ModerationRequest {
   _$$_ModerationRequestCopyWith<_$_ModerationRequest> get copyWith =>
       __$$_ModerationRequestCopyWithImpl<_$_ModerationRequest>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ModerationRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ModerationRequest implements ModerationRequest {
   const factory _ModerationRequest(
       {required final String input,
       final String? model}) = _$_ModerationRequest;
+
+  factory _ModerationRequest.fromJson(Map<String, dynamic> json) =
+      _$_ModerationRequest.fromJson;
 
   @override
   String get input;
@@ -1097,6 +1255,10 @@ abstract class _ModerationRequest implements ModerationRequest {
       throw _privateConstructorUsedError;
 }
 
+ImageRequest _$ImageRequestFromJson(Map<String, dynamic> json) {
+  return _ImageRequest.fromJson(json);
+}
+
 /// @nodoc
 mixin _$ImageRequest {
   String get prompt => throw _privateConstructorUsedError;
@@ -1106,6 +1268,7 @@ mixin _$ImageRequest {
   @JsonKey(name: 'response_format')
   int? get responseFormat => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ImageRequestCopyWith<ImageRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1228,7 +1391,7 @@ class __$$_ImageRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ImageRequest implements _ImageRequest {
   const _$_ImageRequest(
       {required this.prompt,
@@ -1236,6 +1399,9 @@ class _$_ImageRequest implements _ImageRequest {
       this.size,
       this.user,
       @JsonKey(name: 'response_format') this.responseFormat});
+
+  factory _$_ImageRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_ImageRequestFromJson(json);
 
   @override
   final String prompt;
@@ -1267,6 +1433,7 @@ class _$_ImageRequest implements _ImageRequest {
                 other.responseFormat == responseFormat));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, prompt, n, size, user, responseFormat);
@@ -1276,6 +1443,13 @@ class _$_ImageRequest implements _ImageRequest {
   @pragma('vm:prefer-inline')
   _$$_ImageRequestCopyWith<_$_ImageRequest> get copyWith =>
       __$$_ImageRequestCopyWithImpl<_$_ImageRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ImageRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ImageRequest implements ImageRequest {
@@ -1286,6 +1460,9 @@ abstract class _ImageRequest implements ImageRequest {
           final String? user,
           @JsonKey(name: 'response_format') final int? responseFormat}) =
       _$_ImageRequest;
+
+  factory _ImageRequest.fromJson(Map<String, dynamic> json) =
+      _$_ImageRequest.fromJson;
 
   @override
   String get prompt;
