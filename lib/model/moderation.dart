@@ -20,7 +20,8 @@ class ModerationResult with _$ModerationResult {
   const factory ModerationResult({
     final bool? flagged,
     final ModerationCategories? categories,
-    final ModerationCategoryScores? categoryScores,
+    @JsonKey(name: 'category_scores')
+        final ModerationCategoryScores? categoryScores,
   }) = _ModerationResult;
 
   factory ModerationResult.fromJson(Map<String, dynamic> json) =>
