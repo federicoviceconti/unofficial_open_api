@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:unofficial_chat_gpt_open_api/unofficial_chat_gpt_open_api.dart';
+import 'package:unofficial_open_api/unofficial_open_api.dart';
 import 'package:logging/logging.dart';
 
 final openAIService = Provider(

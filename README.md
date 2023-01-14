@@ -7,7 +7,7 @@ Create the API Key from the [official website](https://beta.openai.com/account/a
 Import the package through the following Dart code:
 
 ```dart
-import 'package:unofficial_chat_gpt_open_api/unofficial_chat_gpt_open_api.dart';
+import 'package:unofficial_open_api/unofficial_open_api.dart';
 ```
 
 Create the Open AI service and use its services:

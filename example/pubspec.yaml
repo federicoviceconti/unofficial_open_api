@@ -13,7 +13,7 @@ dependencies:
   logging: ^1.1.0
   flutter_riverpod: ^2.1.1
   riverpod_annotation: ^1.0.6
-  unofficial_chat_gpt_open_api:
+  unofficial_open_api:
     path: ../
 
 dev_dependencies:
