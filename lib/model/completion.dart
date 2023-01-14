@@ -37,9 +37,9 @@ class CompletionChoice with _$CompletionChoice {
 class LogProb with _$LogProb {
   const factory LogProb({
     final List<String>? tokens,
-    final List<double>? tokenLogprobs,
-    final List<Map<String, double>>? topLogprobs,
-    final List<int>? textOffset,
+    @JsonKey(name: "token_logprobs") final List<double>? tokenLogprobs,
+    @JsonKey(name: "top_logprobs") final List<Map<String, double>>? topLogprobs,
+    @JsonKey(name: "text_offset") final List<int>? textOffset,
   }) = _LogProb;
 
   factory LogProb.fromJson(Map<String, dynamic> json) =>
