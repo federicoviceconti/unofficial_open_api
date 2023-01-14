@@ -12,3 +12,4 @@ export 'delete.dart';
 export 'moderation.dart';
 export 'requests.dart';
 export 'usage.dart';
+export 'image.dart';

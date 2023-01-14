@@ -247,4 +247,89 @@ class _$OpenAIService extends OpenAIService {
     );
     return client.send<Moderation, Moderation>($request);
   }
+
+  @override
+  Future<Response<Data<ImageUrl>>> createImage(ImageRequest request) {
+    final Uri $url = Uri.parse('/v1/images/generations');
+    final $body = request;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<Data<ImageUrl>, ImageUrl>($request);
+  }
+
+  @override
+  Future<Response<Data<ImageUrl>>> createImageEdit(
+    List<int> image,
+    List<int>? mask,
+    String prompt,
+    int? n,
+    String? size,
+  ) {
+    final Uri $url = Uri.parse('/v1/images/edits');
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String>(
+        'prompt',
+        prompt,
+      ),
+      PartValue<int?>(
+        'n',
+        n,
+      ),
+      PartValue<String?>(
+        'size',
+        size,
+      ),
+      PartValueFile<List<int>>(
+        'image',
+        image,
+      ),
+      PartValueFile<List<int>?>(
+        'mask',
+        mask,
+      ),
+    ];
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parts: $parts,
+      multipart: true,
+    );
+    return client.send<Data<ImageUrl>, ImageUrl>($request);
+  }
+
+  @override
+  Future<Response<Data<ImageUrl>>> createImageVariation(
+    List<int> image,
+    int? n,
+    String? size,
+  ) {
+    final Uri $url = Uri.parse('/v1/images/variations');
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<int?>(
+        'n',
+        n,
+      ),
+      PartValue<String?>(
+        'size',
+        size,
+      ),
+      PartValueFile<List<int>>(
+        'image',
+        image,
+      ),
+    ];
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parts: $parts,
+      multipart: true,
+    );
+    return client.send<Data<ImageUrl>, ImageUrl>($request);
+  }
 }

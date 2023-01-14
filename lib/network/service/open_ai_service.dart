@@ -128,4 +128,27 @@ abstract class OpenAIService extends ChopperService {
   Future<Response<Moderation>> createModeration(
     @Body() ModerationRequest request,
   );
+
+  @Post(path: "/v1/images/generations")
+  Future<Response<Data<ImageUrl>>> createImage(
+    @Body() ImageRequest request,
+  );
+
+  @Post(path: "/v1/images/edits")
+  @Multipart()
+  Future<Response<Data<ImageUrl>>> createImageEdit(
+    @PartFile("image") List<int> image,
+    @PartFile("mask") List<int>? mask,
+    @Part("prompt") String prompt,
+    @Part("n") int? n,
+    @Part("size") String? size,
+  );
+
+  @Post(path: "/v1/images/variations")
+  @Multipart()
+  Future<Response<Data<ImageUrl>>> createImageVariation(
+    @PartFile("image") List<int> image,
+    @Part("n") int? n,
+    @Part("size") String? size,
+  );
 }

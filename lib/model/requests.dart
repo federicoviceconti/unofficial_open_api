@@ -59,3 +59,14 @@ class ModerationRequest with _$ModerationRequest {
     String? model,
   }) = _ModerationRequest;
 }
+
+@Freezed(fromJson: false)
+class ImageRequest with _$ImageRequest {
+  const factory ImageRequest({
+    required final String prompt,
+    final int? n,
+    final int? size,
+    final String? user,
+    @JsonKey(name: 'response_format') final int? responseFormat,
+  }) = _ImageRequest;
+}

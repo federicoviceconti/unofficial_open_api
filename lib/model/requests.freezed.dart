@@ -19,7 +19,7 @@ mixin _$CompletionRequest {
   String get prompt => throw _privateConstructorUsedError;
   int get maxTokens => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
-  int? get temperature => throw _privateConstructorUsedError;
+  int get temperature => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CompletionRequestCopyWith<CompletionRequest> get copyWith =>
@@ -32,7 +32,7 @@ abstract class $CompletionRequestCopyWith<$Res> {
           CompletionRequest value, $Res Function(CompletionRequest) then) =
       _$CompletionRequestCopyWithImpl<$Res, CompletionRequest>;
   @useResult
-  $Res call({String prompt, int maxTokens, String? model, int? temperature});
+  $Res call({String prompt, int maxTokens, String? model, int temperature});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
     Object? prompt = null,
     Object? maxTokens = null,
     Object? model = freezed,
-    Object? temperature = freezed,
+    Object? temperature = null,
   }) {
     return _then(_value.copyWith(
       prompt: null == prompt
@@ -66,10 +66,10 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as String?,
-      temperature: freezed == temperature
+      temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$_CompletionRequestCopyWith<$Res>
       __$$_CompletionRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String prompt, int maxTokens, String? model, int? temperature});
+  $Res call({String prompt, int maxTokens, String? model, int temperature});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
     Object? prompt = null,
     Object? maxTokens = null,
     Object? model = freezed,
-    Object? temperature = freezed,
+    Object? temperature = null,
   }) {
     return _then(_$_CompletionRequest(
       prompt: null == prompt
@@ -114,10 +114,10 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as String?,
-      temperature: freezed == temperature
+      temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -129,7 +129,7 @@ class _$_CompletionRequest implements _CompletionRequest {
       {required this.prompt,
       required this.maxTokens,
       this.model,
-      this.temperature});
+      this.temperature = 0});
 
   @override
   final String prompt;
@@ -138,7 +138,8 @@ class _$_CompletionRequest implements _CompletionRequest {
   @override
   final String? model;
   @override
-  final int? temperature;
+  @JsonKey()
+  final int temperature;
 
   @override
   String toString() {
@@ -175,7 +176,7 @@ abstract class _CompletionRequest implements CompletionRequest {
       {required final String prompt,
       required final int maxTokens,
       final String? model,
-      final int? temperature}) = _$_CompletionRequest;
+      final int temperature}) = _$_CompletionRequest;
 
   @override
   String get prompt;
@@ -184,7 +185,7 @@ abstract class _CompletionRequest implements CompletionRequest {
   @override
   String? get model;
   @override
-  int? get temperature;
+  int get temperature;
   @override
   @JsonKey(ignore: true)
   _$$_CompletionRequestCopyWith<_$_CompletionRequest> get copyWith =>
@@ -1093,5 +1094,212 @@ abstract class _ModerationRequest implements ModerationRequest {
   @override
   @JsonKey(ignore: true)
   _$$_ModerationRequestCopyWith<_$_ModerationRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$ImageRequest {
+  String get prompt => throw _privateConstructorUsedError;
+  int? get n => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
+  String? get user => throw _privateConstructorUsedError;
+  @JsonKey(name: 'response_format')
+  int? get responseFormat => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ImageRequestCopyWith<ImageRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageRequestCopyWith<$Res> {
+  factory $ImageRequestCopyWith(
+          ImageRequest value, $Res Function(ImageRequest) then) =
+      _$ImageRequestCopyWithImpl<$Res, ImageRequest>;
+  @useResult
+  $Res call(
+      {String prompt,
+      int? n,
+      int? size,
+      String? user,
+      @JsonKey(name: 'response_format') int? responseFormat});
+}
+
+/// @nodoc
+class _$ImageRequestCopyWithImpl<$Res, $Val extends ImageRequest>
+    implements $ImageRequestCopyWith<$Res> {
+  _$ImageRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? prompt = null,
+    Object? n = freezed,
+    Object? size = freezed,
+    Object? user = freezed,
+    Object? responseFormat = freezed,
+  }) {
+    return _then(_value.copyWith(
+      prompt: null == prompt
+          ? _value.prompt
+          : prompt // ignore: cast_nullable_to_non_nullable
+              as String,
+      n: freezed == n
+          ? _value.n
+          : n // ignore: cast_nullable_to_non_nullable
+              as int?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as String?,
+      responseFormat: freezed == responseFormat
+          ? _value.responseFormat
+          : responseFormat // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ImageRequestCopyWith<$Res>
+    implements $ImageRequestCopyWith<$Res> {
+  factory _$$_ImageRequestCopyWith(
+          _$_ImageRequest value, $Res Function(_$_ImageRequest) then) =
+      __$$_ImageRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String prompt,
+      int? n,
+      int? size,
+      String? user,
+      @JsonKey(name: 'response_format') int? responseFormat});
+}
+
+/// @nodoc
+class __$$_ImageRequestCopyWithImpl<$Res>
+    extends _$ImageRequestCopyWithImpl<$Res, _$_ImageRequest>
+    implements _$$_ImageRequestCopyWith<$Res> {
+  __$$_ImageRequestCopyWithImpl(
+      _$_ImageRequest _value, $Res Function(_$_ImageRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? prompt = null,
+    Object? n = freezed,
+    Object? size = freezed,
+    Object? user = freezed,
+    Object? responseFormat = freezed,
+  }) {
+    return _then(_$_ImageRequest(
+      prompt: null == prompt
+          ? _value.prompt
+          : prompt // ignore: cast_nullable_to_non_nullable
+              as String,
+      n: freezed == n
+          ? _value.n
+          : n // ignore: cast_nullable_to_non_nullable
+              as int?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as String?,
+      responseFormat: freezed == responseFormat
+          ? _value.responseFormat
+          : responseFormat // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ImageRequest implements _ImageRequest {
+  const _$_ImageRequest(
+      {required this.prompt,
+      this.n,
+      this.size,
+      this.user,
+      @JsonKey(name: 'response_format') this.responseFormat});
+
+  @override
+  final String prompt;
+  @override
+  final int? n;
+  @override
+  final int? size;
+  @override
+  final String? user;
+  @override
+  @JsonKey(name: 'response_format')
+  final int? responseFormat;
+
+  @override
+  String toString() {
+    return 'ImageRequest(prompt: $prompt, n: $n, size: $size, user: $user, responseFormat: $responseFormat)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ImageRequest &&
+            (identical(other.prompt, prompt) || other.prompt == prompt) &&
+            (identical(other.n, n) || other.n == n) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.responseFormat, responseFormat) ||
+                other.responseFormat == responseFormat));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, prompt, n, size, user, responseFormat);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ImageRequestCopyWith<_$_ImageRequest> get copyWith =>
+      __$$_ImageRequestCopyWithImpl<_$_ImageRequest>(this, _$identity);
+}
+
+abstract class _ImageRequest implements ImageRequest {
+  const factory _ImageRequest(
+          {required final String prompt,
+          final int? n,
+          final int? size,
+          final String? user,
+          @JsonKey(name: 'response_format') final int? responseFormat}) =
+      _$_ImageRequest;
+
+  @override
+  String get prompt;
+  @override
+  int? get n;
+  @override
+  int? get size;
+  @override
+  String? get user;
+  @override
+  @JsonKey(name: 'response_format')
+  int? get responseFormat;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ImageRequestCopyWith<_$_ImageRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
