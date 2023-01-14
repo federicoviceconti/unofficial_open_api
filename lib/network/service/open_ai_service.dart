@@ -48,7 +48,7 @@ abstract class OpenAIService extends ChopperService {
     return _$OpenAIService(client);
   }
 
-  @Get(path: "v1/models")  
+  @Get(path: "v1/models")
   Future<Response<Data<Model>>> getModels();
 
   @Get(path: "/v1/models/{model_id}")

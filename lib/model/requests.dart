@@ -51,13 +51,17 @@ class FineTuneRequest with _$FineTuneRequest {
     final String? model,
     final int? nEpochs,
     final int? batchSize,
-    @JsonKey(name: 'learning_rate_multiplier') final double? learningRateMultiplier,
+    @JsonKey(name: 'learning_rate_multiplier')
+        final double? learningRateMultiplier,
     @JsonKey(name: 'prompt_loss_weight') final double? promptLossWeight,
-    @JsonKey(name: 'compute_classification_metrics') final bool? computeClassificationMetrics,
+    @JsonKey(name: 'compute_classification_metrics')
+        final bool? computeClassificationMetrics,
     @JsonKey(name: 'classification_n_classes')
         final int? classificationNClasses,
-    @JsonKey(name: 'classification_positive_class') final String? classificationPositiveClass,
-    @JsonKey(name: 'classification_betas') final List<double>? classificationBetas,
+    @JsonKey(name: 'classification_positive_class')
+        final String? classificationPositiveClass,
+    @JsonKey(name: 'classification_betas')
+        final List<double>? classificationBetas,
     final String? suffix,
   }) = _FineTuneRequest;
 

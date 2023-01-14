@@ -9,5 +9,6 @@ class ImageUrl with _$ImageUrl {
     final String? url,
   }) = _ImageUrl;
 
-  factory ImageUrl.fromJson(Map<String, Object?> json) => _$ImageUrlFromJson(json);
+  factory ImageUrl.fromJson(Map<String, Object?> json) =>
+      _$ImageUrlFromJson(json);
 }
