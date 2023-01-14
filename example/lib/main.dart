@@ -48,32 +48,35 @@ class ExampleOpenAI extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Base url: ${service.client.baseUrl}'),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () => _getModels(ref),
-              child: const Text("List of models"),
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () => _getModelById(ref),
-              child: const Text("Model by id"),
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () => _completion(ref),
-              child: const Text("Completion"),
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () => _moderation(ref),
-              child: const Text("Moderation"),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Base url: ${service.client.baseUrl}'),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _getModels(ref),
+                child: const Text("List of models"),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _getModelById(ref),
+                child: const Text("Model by id"),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _completion(ref),
+                child: const Text("Completion"),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _moderation(ref),
+                child: const Text("Moderation"),
+              ),
+            ],
+          ),
         ),
       ),
     );
