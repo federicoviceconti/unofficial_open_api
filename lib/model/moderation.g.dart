@@ -29,17 +29,17 @@ _$_ModerationResult _$$_ModerationResultFromJson(Map<String, dynamic> json) =>
           ? null
           : ModerationCategories.fromJson(
               json['categories'] as Map<String, dynamic>),
-      categoryScores: json['categoryScores'] == null
+      categoryScores: json['category_scores'] == null
           ? null
           : ModerationCategoryScores.fromJson(
-              json['categoryScores'] as Map<String, dynamic>),
+              json['category_scores'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ModerationResultToJson(_$_ModerationResult instance) =>
     <String, dynamic>{
       'flagged': instance.flagged,
       'categories': instance.categories,
-      'categoryScores': instance.categoryScores,
+      'category_scores': instance.categoryScores,
     };
 
 _$_ModerationCategories _$$_ModerationCategoriesFromJson(

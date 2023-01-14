@@ -203,6 +203,7 @@ ModerationResult _$ModerationResultFromJson(Map<String, dynamic> json) {
 mixin _$ModerationResult {
   bool? get flagged => throw _privateConstructorUsedError;
   ModerationCategories? get categories => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category_scores')
   ModerationCategoryScores? get categoryScores =>
       throw _privateConstructorUsedError;
 
@@ -221,7 +222,8 @@ abstract class $ModerationResultCopyWith<$Res> {
   $Res call(
       {bool? flagged,
       ModerationCategories? categories,
-      ModerationCategoryScores? categoryScores});
+      @JsonKey(name: 'category_scores')
+          ModerationCategoryScores? categoryScores});
 
   $ModerationCategoriesCopyWith<$Res>? get categories;
   $ModerationCategoryScoresCopyWith<$Res>? get categoryScores;
@@ -297,7 +299,8 @@ abstract class _$$_ModerationResultCopyWith<$Res>
   $Res call(
       {bool? flagged,
       ModerationCategories? categories,
-      ModerationCategoryScores? categoryScores});
+      @JsonKey(name: 'category_scores')
+          ModerationCategoryScores? categoryScores});
 
   @override
   $ModerationCategoriesCopyWith<$Res>? get categories;
@@ -341,7 +344,9 @@ class __$$_ModerationResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ModerationResult implements _ModerationResult {
   const _$_ModerationResult(
-      {this.flagged, this.categories, this.categoryScores});
+      {this.flagged,
+      this.categories,
+      @JsonKey(name: 'category_scores') this.categoryScores});
 
   factory _$_ModerationResult.fromJson(Map<String, dynamic> json) =>
       _$$_ModerationResultFromJson(json);
@@ -351,6 +356,7 @@ class _$_ModerationResult implements _ModerationResult {
   @override
   final ModerationCategories? categories;
   @override
+  @JsonKey(name: 'category_scores')
   final ModerationCategoryScores? categoryScores;
 
   @override
@@ -391,9 +397,11 @@ class _$_ModerationResult implements _ModerationResult {
 
 abstract class _ModerationResult implements ModerationResult {
   const factory _ModerationResult(
-      {final bool? flagged,
-      final ModerationCategories? categories,
-      final ModerationCategoryScores? categoryScores}) = _$_ModerationResult;
+          {final bool? flagged,
+          final ModerationCategories? categories,
+          @JsonKey(name: 'category_scores')
+              final ModerationCategoryScores? categoryScores}) =
+      _$_ModerationResult;
 
   factory _ModerationResult.fromJson(Map<String, dynamic> json) =
       _$_ModerationResult.fromJson;
@@ -403,6 +411,7 @@ abstract class _ModerationResult implements ModerationResult {
   @override
   ModerationCategories? get categories;
   @override
+  @JsonKey(name: 'category_scores')
   ModerationCategoryScores? get categoryScores;
   @override
   @JsonKey(ignore: true)

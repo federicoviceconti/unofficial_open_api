@@ -78,22 +78,6 @@ class _$OpenAIService extends OpenAIService {
   }
 
   @override
-  Future<Response<Embedding>> createEmbeddingsByEngineId(
-    EmbeddingRequest request, {
-    required String engineId,
-  }) {
-    final Uri $url = Uri.parse('/v1/engines/${engineId}/embeddings');
-    final $body = request;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<Embedding, Embedding>($request);
-  }
-
-  @override
   Future<Response<Data<File>>> getFiles() {
     final Uri $url = Uri.parse('/v1/files');
     final Request $request = Request(

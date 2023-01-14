@@ -67,12 +67,6 @@ abstract class OpenAIService extends ChopperService {
     @Body() EmbeddingRequest request,
   );
 
-  @Post(path: "/v1/engines/{engine_id}/embeddings")
-  Future<Response<Embedding>> createEmbeddingsByEngineId(
-    @Body() EmbeddingRequest request, {
-    @Path("engine_id") required String engineId,
-  });
-
   @Get(path: "/v1/files")
   Future<Response<Data<File>>> getFiles();
 
