@@ -20,10 +20,9 @@ Moderation _$ModerationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Moderation {
-  bool? get flagged => throw _privateConstructorUsedError;
-  ModerationCategories? get categories => throw _privateConstructorUsedError;
-  ModerationCategoryScores? get categoryScores =>
-      throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get model => throw _privateConstructorUsedError;
+  List<ModerationResult>? get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,6 +36,188 @@ abstract class $ModerationCopyWith<$Res> {
           Moderation value, $Res Function(Moderation) then) =
       _$ModerationCopyWithImpl<$Res, Moderation>;
   @useResult
+  $Res call({String? id, String? model, List<ModerationResult>? results});
+}
+
+/// @nodoc
+class _$ModerationCopyWithImpl<$Res, $Val extends Moderation>
+    implements $ModerationCopyWith<$Res> {
+  _$ModerationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? model = freezed,
+    Object? results = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      model: freezed == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String?,
+      results: freezed == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ModerationResult>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ModerationCopyWith<$Res>
+    implements $ModerationCopyWith<$Res> {
+  factory _$$_ModerationCopyWith(
+          _$_Moderation value, $Res Function(_$_Moderation) then) =
+      __$$_ModerationCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? id, String? model, List<ModerationResult>? results});
+}
+
+/// @nodoc
+class __$$_ModerationCopyWithImpl<$Res>
+    extends _$ModerationCopyWithImpl<$Res, _$_Moderation>
+    implements _$$_ModerationCopyWith<$Res> {
+  __$$_ModerationCopyWithImpl(
+      _$_Moderation _value, $Res Function(_$_Moderation) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? model = freezed,
+    Object? results = freezed,
+  }) {
+    return _then(_$_Moderation(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      model: freezed == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String?,
+      results: freezed == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<ModerationResult>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Moderation implements _Moderation {
+  const _$_Moderation(
+      {this.id, this.model, final List<ModerationResult>? results})
+      : _results = results;
+
+  factory _$_Moderation.fromJson(Map<String, dynamic> json) =>
+      _$$_ModerationFromJson(json);
+
+  @override
+  final String? id;
+  @override
+  final String? model;
+  final List<ModerationResult>? _results;
+  @override
+  List<ModerationResult>? get results {
+    final value = _results;
+    if (value == null) return null;
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'Moderation(id: $id, model: $model, results: $results)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Moderation &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.model, model) || other.model == model) &&
+            const DeepCollectionEquality().equals(other._results, _results));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, model, const DeepCollectionEquality().hash(_results));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ModerationCopyWith<_$_Moderation> get copyWith =>
+      __$$_ModerationCopyWithImpl<_$_Moderation>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ModerationToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Moderation implements Moderation {
+  const factory _Moderation(
+      {final String? id,
+      final String? model,
+      final List<ModerationResult>? results}) = _$_Moderation;
+
+  factory _Moderation.fromJson(Map<String, dynamic> json) =
+      _$_Moderation.fromJson;
+
+  @override
+  String? get id;
+  @override
+  String? get model;
+  @override
+  List<ModerationResult>? get results;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ModerationCopyWith<_$_Moderation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ModerationResult _$ModerationResultFromJson(Map<String, dynamic> json) {
+  return _ModerationResult.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ModerationResult {
+  bool? get flagged => throw _privateConstructorUsedError;
+  ModerationCategories? get categories => throw _privateConstructorUsedError;
+  ModerationCategoryScores? get categoryScores =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ModerationResultCopyWith<ModerationResult> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ModerationResultCopyWith<$Res> {
+  factory $ModerationResultCopyWith(
+          ModerationResult value, $Res Function(ModerationResult) then) =
+      _$ModerationResultCopyWithImpl<$Res, ModerationResult>;
+  @useResult
   $Res call(
       {bool? flagged,
       ModerationCategories? categories,
@@ -47,9 +228,9 @@ abstract class $ModerationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationCopyWithImpl<$Res, $Val extends Moderation>
-    implements $ModerationCopyWith<$Res> {
-  _$ModerationCopyWithImpl(this._value, this._then);
+class _$ModerationResultCopyWithImpl<$Res, $Val extends ModerationResult>
+    implements $ModerationResultCopyWith<$Res> {
+  _$ModerationResultCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -106,11 +287,11 @@ class _$ModerationCopyWithImpl<$Res, $Val extends Moderation>
 }
 
 /// @nodoc
-abstract class _$$_ModerationCopyWith<$Res>
-    implements $ModerationCopyWith<$Res> {
-  factory _$$_ModerationCopyWith(
-          _$_Moderation value, $Res Function(_$_Moderation) then) =
-      __$$_ModerationCopyWithImpl<$Res>;
+abstract class _$$_ModerationResultCopyWith<$Res>
+    implements $ModerationResultCopyWith<$Res> {
+  factory _$$_ModerationResultCopyWith(
+          _$_ModerationResult value, $Res Function(_$_ModerationResult) then) =
+      __$$_ModerationResultCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -125,11 +306,11 @@ abstract class _$$_ModerationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCopyWithImpl<$Res>
-    extends _$ModerationCopyWithImpl<$Res, _$_Moderation>
-    implements _$$_ModerationCopyWith<$Res> {
-  __$$_ModerationCopyWithImpl(
-      _$_Moderation _value, $Res Function(_$_Moderation) _then)
+class __$$_ModerationResultCopyWithImpl<$Res>
+    extends _$ModerationResultCopyWithImpl<$Res, _$_ModerationResult>
+    implements _$$_ModerationResultCopyWith<$Res> {
+  __$$_ModerationResultCopyWithImpl(
+      _$_ModerationResult _value, $Res Function(_$_ModerationResult) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -139,7 +320,7 @@ class __$$_ModerationCopyWithImpl<$Res>
     Object? categories = freezed,
     Object? categoryScores = freezed,
   }) {
-    return _then(_$_Moderation(
+    return _then(_$_ModerationResult(
       flagged: freezed == flagged
           ? _value.flagged
           : flagged // ignore: cast_nullable_to_non_nullable
@@ -158,11 +339,12 @@ class __$$_ModerationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Moderation implements _Moderation {
-  const _$_Moderation({this.flagged, this.categories, this.categoryScores});
+class _$_ModerationResult implements _ModerationResult {
+  const _$_ModerationResult(
+      {this.flagged, this.categories, this.categoryScores});
 
-  factory _$_Moderation.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationFromJson(json);
+  factory _$_ModerationResult.fromJson(Map<String, dynamic> json) =>
+      _$$_ModerationResultFromJson(json);
 
   @override
   final bool? flagged;
@@ -173,14 +355,14 @@ class _$_Moderation implements _Moderation {
 
   @override
   String toString() {
-    return 'Moderation(flagged: $flagged, categories: $categories, categoryScores: $categoryScores)';
+    return 'ModerationResult(flagged: $flagged, categories: $categories, categoryScores: $categoryScores)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Moderation &&
+            other is _$_ModerationResult &&
             (identical(other.flagged, flagged) || other.flagged == flagged) &&
             (identical(other.categories, categories) ||
                 other.categories == categories) &&
@@ -196,25 +378,25 @@ class _$_Moderation implements _Moderation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCopyWith<_$_Moderation> get copyWith =>
-      __$$_ModerationCopyWithImpl<_$_Moderation>(this, _$identity);
+  _$$_ModerationResultCopyWith<_$_ModerationResult> get copyWith =>
+      __$$_ModerationResultCopyWithImpl<_$_ModerationResult>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationToJson(
+    return _$$_ModerationResultToJson(
       this,
     );
   }
 }
 
-abstract class _Moderation implements Moderation {
-  const factory _Moderation(
+abstract class _ModerationResult implements ModerationResult {
+  const factory _ModerationResult(
       {final bool? flagged,
       final ModerationCategories? categories,
-      final ModerationCategoryScores? categoryScores}) = _$_Moderation;
+      final ModerationCategoryScores? categoryScores}) = _$_ModerationResult;
 
-  factory _Moderation.fromJson(Map<String, dynamic> json) =
-      _$_Moderation.fromJson;
+  factory _ModerationResult.fromJson(Map<String, dynamic> json) =
+      _$_ModerationResult.fromJson;
 
   @override
   bool? get flagged;
@@ -224,7 +406,7 @@ abstract class _Moderation implements Moderation {
   ModerationCategoryScores? get categoryScores;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCopyWith<_$_Moderation> get copyWith =>
+  _$$_ModerationResultCopyWith<_$_ModerationResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -234,6 +416,8 @@ ModerationCategories _$ModerationCategoriesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ModerationCategories {
+  bool? get hate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'hate/threatening')
   bool? get hateThreatening => throw _privateConstructorUsedError;
   @JsonKey(name: 'self-harm')
   bool? get selfHarm => throw _privateConstructorUsedError;
@@ -257,7 +441,8 @@ abstract class $ModerationCategoriesCopyWith<$Res> {
       _$ModerationCategoriesCopyWithImpl<$Res, ModerationCategories>;
   @useResult
   $Res call(
-      {bool? hateThreatening,
+      {bool? hate,
+      @JsonKey(name: 'hate/threatening') bool? hateThreatening,
       @JsonKey(name: 'self-harm') bool? selfHarm,
       bool? sexual,
       @JsonKey(name: 'sexual/minors') bool? sexualMinors,
@@ -279,6 +464,7 @@ class _$ModerationCategoriesCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hate = freezed,
     Object? hateThreatening = freezed,
     Object? selfHarm = freezed,
     Object? sexual = freezed,
@@ -287,6 +473,10 @@ class _$ModerationCategoriesCopyWithImpl<$Res,
     Object? violenceGraphic = freezed,
   }) {
     return _then(_value.copyWith(
+      hate: freezed == hate
+          ? _value.hate
+          : hate // ignore: cast_nullable_to_non_nullable
+              as bool?,
       hateThreatening: freezed == hateThreatening
           ? _value.hateThreatening
           : hateThreatening // ignore: cast_nullable_to_non_nullable
@@ -324,7 +514,8 @@ abstract class _$$_ModerationCategoriesCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? hateThreatening,
+      {bool? hate,
+      @JsonKey(name: 'hate/threatening') bool? hateThreatening,
       @JsonKey(name: 'self-harm') bool? selfHarm,
       bool? sexual,
       @JsonKey(name: 'sexual/minors') bool? sexualMinors,
@@ -343,6 +534,7 @@ class __$$_ModerationCategoriesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? hate = freezed,
     Object? hateThreatening = freezed,
     Object? selfHarm = freezed,
     Object? sexual = freezed,
@@ -351,6 +543,10 @@ class __$$_ModerationCategoriesCopyWithImpl<$Res>
     Object? violenceGraphic = freezed,
   }) {
     return _then(_$_ModerationCategories(
+      hate: freezed == hate
+          ? _value.hate
+          : hate // ignore: cast_nullable_to_non_nullable
+              as bool?,
       hateThreatening: freezed == hateThreatening
           ? _value.hateThreatening
           : hateThreatening // ignore: cast_nullable_to_non_nullable
@@ -383,7 +579,8 @@ class __$$_ModerationCategoriesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ModerationCategories implements _ModerationCategories {
   const _$_ModerationCategories(
-      {this.hateThreatening,
+      {this.hate,
+      @JsonKey(name: 'hate/threatening') this.hateThreatening,
       @JsonKey(name: 'self-harm') this.selfHarm,
       this.sexual,
       @JsonKey(name: 'sexual/minors') this.sexualMinors,
@@ -394,6 +591,9 @@ class _$_ModerationCategories implements _ModerationCategories {
       _$$_ModerationCategoriesFromJson(json);
 
   @override
+  final bool? hate;
+  @override
+  @JsonKey(name: 'hate/threatening')
   final bool? hateThreatening;
   @override
   @JsonKey(name: 'self-harm')
@@ -411,7 +611,7 @@ class _$_ModerationCategories implements _ModerationCategories {
 
   @override
   String toString() {
-    return 'ModerationCategories(hateThreatening: $hateThreatening, selfHarm: $selfHarm, sexual: $sexual, sexualMinors: $sexualMinors, violence: $violence, violenceGraphic: $violenceGraphic)';
+    return 'ModerationCategories(hate: $hate, hateThreatening: $hateThreatening, selfHarm: $selfHarm, sexual: $sexual, sexualMinors: $sexualMinors, violence: $violence, violenceGraphic: $violenceGraphic)';
   }
 
   @override
@@ -419,6 +619,7 @@ class _$_ModerationCategories implements _ModerationCategories {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ModerationCategories &&
+            (identical(other.hate, hate) || other.hate == hate) &&
             (identical(other.hateThreatening, hateThreatening) ||
                 other.hateThreatening == hateThreatening) &&
             (identical(other.selfHarm, selfHarm) ||
@@ -434,7 +635,7 @@ class _$_ModerationCategories implements _ModerationCategories {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, hateThreatening, selfHarm,
+  int get hashCode => Object.hash(runtimeType, hate, hateThreatening, selfHarm,
       sexual, sexualMinors, violence, violenceGraphic);
 
   @JsonKey(ignore: true)
@@ -454,7 +655,8 @@ class _$_ModerationCategories implements _ModerationCategories {
 
 abstract class _ModerationCategories implements ModerationCategories {
   const factory _ModerationCategories(
-          {final bool? hateThreatening,
+          {final bool? hate,
+          @JsonKey(name: 'hate/threatening') final bool? hateThreatening,
           @JsonKey(name: 'self-harm') final bool? selfHarm,
           final bool? sexual,
           @JsonKey(name: 'sexual/minors') final bool? sexualMinors,
@@ -466,6 +668,9 @@ abstract class _ModerationCategories implements ModerationCategories {
       _$_ModerationCategories.fromJson;
 
   @override
+  bool? get hate;
+  @override
+  @JsonKey(name: 'hate/threatening')
   bool? get hateThreatening;
   @override
   @JsonKey(name: 'self-harm')

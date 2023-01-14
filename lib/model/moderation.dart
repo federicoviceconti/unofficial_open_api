@@ -6,9 +6,9 @@ part 'moderation.freezed.dart';
 @freezed
 class Moderation with _$Moderation {
   const factory Moderation({
-    final bool? flagged,
-    final ModerationCategories? categories,
-    final ModerationCategoryScores? categoryScores,
+    final String? id,
+    final String? model,
+    final List<ModerationResult>? results,
   }) = _Moderation;
 
   factory Moderation.fromJson(Map<String, dynamic> json) =>
@@ -16,9 +16,22 @@ class Moderation with _$Moderation {
 }
 
 @freezed
+class ModerationResult with _$ModerationResult {
+  const factory ModerationResult({
+    final bool? flagged,
+    final ModerationCategories? categories,
+    final ModerationCategoryScores? categoryScores,
+  }) = _ModerationResult;
+
+  factory ModerationResult.fromJson(Map<String, dynamic> json) =>
+      _$ModerationResultFromJson(json);
+}
+
+@freezed
 class ModerationCategories with _$ModerationCategories {
   const factory ModerationCategories({
-    final bool? hateThreatening,
+    final bool? hate,
+    @JsonKey(name: 'hate/threatening') final bool? hateThreatening,
     @JsonKey(name: 'self-harm') final bool? selfHarm,
     final bool? sexual,
     @JsonKey(name: 'sexual/minors') final bool? sexualMinors,

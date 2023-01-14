@@ -69,6 +69,10 @@ class ExampleOpenAI extends ConsumerWidget {
               child: const Text("Completion"),
             ),
             const SizedBox(height: 16),
+            TextButton(
+              onPressed: () => _moderation(ref),
+              child: const Text("Moderation"),
+            ),
           ],
         ),
       ),
@@ -105,9 +109,11 @@ class ExampleOpenAI extends ConsumerWidget {
   void _completion(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).createCompletion(
           const CompletionRequest(
-            prompt: 'Create an email for out of office for christmas holiday',
+            prompt:
+                'Create an out of office email sample for christmas holiday',
             model: 'text-davinci-003',
             temperature: 0,
+            maxTokens: 60,
           ),
         );
     if (!responseModels.isSuccessful) return;
@@ -115,6 +121,21 @@ class ExampleOpenAI extends ConsumerWidget {
     final body = responseModels.body;
     if (body == null) return;
 
-    log('Completion: $body');
+    log('$body');
+  }
+
+  void _moderation(WidgetRef ref) async {
+    final responseModels = await ref.read(openAIService).createModeration(
+          const ModerationRequest(
+            input: 'This is Steve, my wonderful dog!',
+            model: 'text-moderation-latest',
+          ),
+        );
+    if (!responseModels.isSuccessful) return;
+
+    final body = responseModels.body;
+    if (body == null) return;
+
+    log('$body');
   }
 }

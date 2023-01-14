@@ -8,6 +8,22 @@ part of 'moderation.dart';
 
 _$_Moderation _$$_ModerationFromJson(Map<String, dynamic> json) =>
     _$_Moderation(
+      id: json['id'] as String?,
+      model: json['model'] as String?,
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => ModerationResult.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_ModerationToJson(_$_Moderation instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'model': instance.model,
+      'results': instance.results,
+    };
+
+_$_ModerationResult _$$_ModerationResultFromJson(Map<String, dynamic> json) =>
+    _$_ModerationResult(
       flagged: json['flagged'] as bool?,
       categories: json['categories'] == null
           ? null
@@ -19,7 +35,7 @@ _$_Moderation _$$_ModerationFromJson(Map<String, dynamic> json) =>
               json['categoryScores'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ModerationToJson(_$_Moderation instance) =>
+Map<String, dynamic> _$$_ModerationResultToJson(_$_ModerationResult instance) =>
     <String, dynamic>{
       'flagged': instance.flagged,
       'categories': instance.categories,
@@ -29,7 +45,8 @@ Map<String, dynamic> _$$_ModerationToJson(_$_Moderation instance) =>
 _$_ModerationCategories _$$_ModerationCategoriesFromJson(
         Map<String, dynamic> json) =>
     _$_ModerationCategories(
-      hateThreatening: json['hateThreatening'] as bool?,
+      hate: json['hate'] as bool?,
+      hateThreatening: json['hate/threatening'] as bool?,
       selfHarm: json['self-harm'] as bool?,
       sexual: json['sexual'] as bool?,
       sexualMinors: json['sexual/minors'] as bool?,
@@ -40,7 +57,8 @@ _$_ModerationCategories _$$_ModerationCategoriesFromJson(
 Map<String, dynamic> _$$_ModerationCategoriesToJson(
         _$_ModerationCategories instance) =>
     <String, dynamic>{
-      'hateThreatening': instance.hateThreatening,
+      'hate': instance.hate,
+      'hate/threatening': instance.hateThreatening,
       'self-harm': instance.selfHarm,
       'sexual': instance.sexual,
       'sexual/minors': instance.sexualMinors,
