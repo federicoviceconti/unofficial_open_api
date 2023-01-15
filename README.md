@@ -1,4 +1,8 @@
-See how to use these APIs on the following [link](https://beta.openai.com/docs/api-reference/introduction)
+## Unofficial Open A(P)I
+
+Use GPT-3 API easily with Dart. This package covers all the main functions.
+
+See how these APIs works on the following [link](https://beta.openai.com/docs/api-reference/introduction)
 
 ## Usage
 
@@ -25,4 +29,6 @@ For more information the sample app into the /example folder.
 
 ## Additional information
 
-Use these APIs safely and responsibly. Any further information on the following [link](https://beta.openai.com/docs/usage-policies).
+Use these APIs safely and responsibly. You can find any further 
+information on the following 
+[link](https://beta.openai.com/docs/usage-policies).
