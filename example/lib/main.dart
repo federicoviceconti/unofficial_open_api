@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:unofficial_open_api/unofficial_open_api.dart';
 import 'package:logging/logging.dart';
 
+final urlImageProvider = StateProvider<String?>((ref) => '');
+
 final openAIService = Provider(
   (ref) => OpenAIService.create(
     apiToken: const String.fromEnvironment('API_KEY'),
@@ -75,6 +77,12 @@ class ExampleOpenAI extends ConsumerWidget {
                 onPressed: () => _moderation(ref),
                 child: const Text("Moderation"),
               ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _generation(ref),
+                child: const Text("Generation"),
+              ),
+              GeneratedImage(url: ref.watch(urlImageProvider))
             ],
           ),
         ),
@@ -82,7 +90,7 @@ class ExampleOpenAI extends ConsumerWidget {
     );
   }
 
-  void _getModelById(WidgetRef ref) async {
+  Future<void> _getModelById(WidgetRef ref) async {
     final responseModel =
         await ref.read(openAIService).getModel(modelId: 'text-davinci-002');
 
@@ -94,7 +102,7 @@ class ExampleOpenAI extends ConsumerWidget {
     log('Object: $body');
   }
 
-  void _getModels(WidgetRef ref) async {
+  Future<void> _getModels(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).getModels();
     if (!responseModels.isSuccessful) return;
 
@@ -109,7 +117,7 @@ class ExampleOpenAI extends ConsumerWidget {
     }
   }
 
-  void _completion(WidgetRef ref) async {
+  Future<void> _completion(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).createCompletion(
           const CompletionRequest(
             prompt:
@@ -127,7 +135,7 @@ class ExampleOpenAI extends ConsumerWidget {
     log('$body');
   }
 
-  void _moderation(WidgetRef ref) async {
+  Future<void> _moderation(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).createModeration(
           const ModerationRequest(
             input: 'This is Steve, my wonderful dog!',
@@ -140,5 +148,36 @@ class ExampleOpenAI extends ConsumerWidget {
     if (body == null) return;
 
     log('$body');
+  }
+
+  Future<void> _generation(WidgetRef ref) async {
+    final responseModels = await ref.read(openAIService).createImage(
+          const ImageRequest(
+            prompt: 'A real akita dog as superhero',
+            responseFormat: 'url',
+            user: 'unique-user-id'
+          ),
+        );
+    if (!responseModels.isSuccessful) return;
+
+    final body = responseModels.body;
+    if (body == null) return;
+
+    log('$body');
+
+    ref.read(urlImageProvider.notifier).state = body.data?.first.url;
+  }
+}
+
+class GeneratedImage extends StatelessWidget {
+  final String? url;
+
+  const GeneratedImage({super.key, this.url});
+
+  @override
+  Widget build(BuildContext context) {
+    if(url == null || url!.isEmpty) return const IgnorePointer();
+
+    return Image.network(url!);
   }
 }

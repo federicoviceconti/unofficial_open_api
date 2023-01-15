@@ -110,10 +110,10 @@ Map<String, dynamic> _$$_ModerationRequestToJson(
 _$_ImageRequest _$$_ImageRequestFromJson(Map<String, dynamic> json) =>
     _$_ImageRequest(
       prompt: json['prompt'] as String,
-      n: json['n'] as int?,
-      size: json['size'] as int?,
+      n: json['n'] as int? ?? 1,
+      size: json['size'] as String? ?? '256x256',
       user: json['user'] as String?,
-      responseFormat: json['response_format'] as int?,
+      responseFormat: json['response_format'] as String?,
     );
 
 Map<String, dynamic> _$$_ImageRequestToJson(_$_ImageRequest instance) =>

@@ -79,6 +79,8 @@ class EmbeddingRequest with _$EmbeddingRequest {
 
     /// A unique identifier representing your end-user, which can help OpenAI to
     /// monitor and detect abuse.
+    /// 
+    /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
     final String? user,
   }) = _EmbeddingRequest;
 
@@ -205,17 +207,25 @@ class ImageRequest with _$ImageRequest {
     /// is 1000 characters.
     required final String prompt,
 
-    /// The number of images to generate. Must be between 1 and 10.
-    final int? n,
+    /// The number of images to generate. Must be between `1` and `10`.
+    /// 
+    /// Default is `1`
+    @Default(1) final int n,
 
     /// The size of the generated images. Must be one of `256x256`,
     /// `512x512`, or `1024x1024`.
-    final int? size,
+    /// 
+    /// Default is `256x256`
+    @Default('256x256') final String? size,
 
     /// A unique identifier representing your end-user, which can help
     /// OpenAI to monitor and detect abuse.
+    /// 
+    /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
+    /// 
+    /// Must be one of `url` or `b64_json`.
     final String? user,
-    @JsonKey(name: 'response_format') final int? responseFormat,
+    @JsonKey(name: 'response_format') final String? responseFormat,
   }) = _ImageRequest;
 
   factory ImageRequest.fromJson(Map<String, Object?> json) =>

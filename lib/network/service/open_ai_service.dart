@@ -22,10 +22,11 @@ abstract class OpenAIService extends ChopperService {
     Edit: Edit.fromJson,
     DeleteResult: DeleteResult.fromJson,
     Completion: Completion.fromJson,
+    ImageUrl: ImageUrl.fromJson,
   };
 
   /// Returns the [OpenAIService] instance.
-  /// 
+  ///
   /// The [apiToken] parameter is mandatory for every requests.
   /// The [customUri] parameter is used to switch the base path of
   /// the requests.

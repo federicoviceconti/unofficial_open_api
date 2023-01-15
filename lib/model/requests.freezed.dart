@@ -579,6 +579,8 @@ mixin _$EmbeddingRequest {
 
   /// A unique identifier representing your end-user, which can help OpenAI to
   /// monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
   String? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -712,6 +714,8 @@ class _$_EmbeddingRequest implements _EmbeddingRequest {
 
   /// A unique identifier representing your end-user, which can help OpenAI to
   /// monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
   @override
   final String? user;
 
@@ -778,6 +782,8 @@ abstract class _EmbeddingRequest implements EmbeddingRequest {
 
   /// A unique identifier representing your end-user, which can help OpenAI to
   /// monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
   String? get user;
   @override
   @JsonKey(ignore: true)
@@ -1646,18 +1652,26 @@ mixin _$ImageRequest {
   /// is 1000 characters.
   String get prompt => throw _privateConstructorUsedError;
 
-  /// The number of images to generate. Must be between 1 and 10.
-  int? get n => throw _privateConstructorUsedError;
+  /// The number of images to generate. Must be between `1` and `10`.
+  ///
+  /// Default is `1`
+  int get n => throw _privateConstructorUsedError;
 
   /// The size of the generated images. Must be one of `256x256`,
   /// `512x512`, or `1024x1024`.
-  int? get size => throw _privateConstructorUsedError;
+  ///
+  /// Default is `256x256`
+  String? get size => throw _privateConstructorUsedError;
 
   /// A unique identifier representing your end-user, which can help
   /// OpenAI to monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
+  ///
+  /// Must be one of `url` or `b64_json`.
   String? get user => throw _privateConstructorUsedError;
   @JsonKey(name: 'response_format')
-  int? get responseFormat => throw _privateConstructorUsedError;
+  String? get responseFormat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1673,10 +1687,10 @@ abstract class $ImageRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {String prompt,
-      int? n,
-      int? size,
+      int n,
+      String? size,
       String? user,
-      @JsonKey(name: 'response_format') int? responseFormat});
+      @JsonKey(name: 'response_format') String? responseFormat});
 }
 
 /// @nodoc
@@ -1693,7 +1707,7 @@ class _$ImageRequestCopyWithImpl<$Res, $Val extends ImageRequest>
   @override
   $Res call({
     Object? prompt = null,
-    Object? n = freezed,
+    Object? n = null,
     Object? size = freezed,
     Object? user = freezed,
     Object? responseFormat = freezed,
@@ -1703,14 +1717,14 @@ class _$ImageRequestCopyWithImpl<$Res, $Val extends ImageRequest>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
-      n: freezed == n
+      n: null == n
           ? _value.n
           : n // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -1718,7 +1732,7 @@ class _$ImageRequestCopyWithImpl<$Res, $Val extends ImageRequest>
       responseFormat: freezed == responseFormat
           ? _value.responseFormat
           : responseFormat // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ) as $Val);
   }
 }
@@ -1733,10 +1747,10 @@ abstract class _$$_ImageRequestCopyWith<$Res>
   @useResult
   $Res call(
       {String prompt,
-      int? n,
-      int? size,
+      int n,
+      String? size,
       String? user,
-      @JsonKey(name: 'response_format') int? responseFormat});
+      @JsonKey(name: 'response_format') String? responseFormat});
 }
 
 /// @nodoc
@@ -1751,7 +1765,7 @@ class __$$_ImageRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? prompt = null,
-    Object? n = freezed,
+    Object? n = null,
     Object? size = freezed,
     Object? user = freezed,
     Object? responseFormat = freezed,
@@ -1761,14 +1775,14 @@ class __$$_ImageRequestCopyWithImpl<$Res>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
-      n: freezed == n
+      n: null == n
           ? _value.n
           : n // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -1776,7 +1790,7 @@ class __$$_ImageRequestCopyWithImpl<$Res>
       responseFormat: freezed == responseFormat
           ? _value.responseFormat
           : responseFormat // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
     ));
   }
 }
@@ -1786,8 +1800,8 @@ class __$$_ImageRequestCopyWithImpl<$Res>
 class _$_ImageRequest implements _ImageRequest {
   const _$_ImageRequest(
       {required this.prompt,
-      this.n,
-      this.size,
+      this.n = 1,
+      this.size = '256x256',
       this.user,
       @JsonKey(name: 'response_format') this.responseFormat});
 
@@ -1799,22 +1813,32 @@ class _$_ImageRequest implements _ImageRequest {
   @override
   final String prompt;
 
-  /// The number of images to generate. Must be between 1 and 10.
+  /// The number of images to generate. Must be between `1` and `10`.
+  ///
+  /// Default is `1`
   @override
-  final int? n;
+  @JsonKey()
+  final int n;
 
   /// The size of the generated images. Must be one of `256x256`,
   /// `512x512`, or `1024x1024`.
+  ///
+  /// Default is `256x256`
   @override
-  final int? size;
+  @JsonKey()
+  final String? size;
 
   /// A unique identifier representing your end-user, which can help
   /// OpenAI to monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
+  ///
+  /// Must be one of `url` or `b64_json`.
   @override
   final String? user;
   @override
   @JsonKey(name: 'response_format')
-  final int? responseFormat;
+  final String? responseFormat;
 
   @override
   String toString() {
@@ -1856,10 +1880,10 @@ class _$_ImageRequest implements _ImageRequest {
 abstract class _ImageRequest implements ImageRequest {
   const factory _ImageRequest(
           {required final String prompt,
-          final int? n,
-          final int? size,
+          final int n,
+          final String? size,
           final String? user,
-          @JsonKey(name: 'response_format') final int? responseFormat}) =
+          @JsonKey(name: 'response_format') final String? responseFormat}) =
       _$_ImageRequest;
 
   factory _ImageRequest.fromJson(Map<String, dynamic> json) =
@@ -1872,21 +1896,29 @@ abstract class _ImageRequest implements ImageRequest {
   String get prompt;
   @override
 
-  /// The number of images to generate. Must be between 1 and 10.
-  int? get n;
+  /// The number of images to generate. Must be between `1` and `10`.
+  ///
+  /// Default is `1`
+  int get n;
   @override
 
   /// The size of the generated images. Must be one of `256x256`,
   /// `512x512`, or `1024x1024`.
-  int? get size;
+  ///
+  /// Default is `256x256`
+  String? get size;
   @override
 
   /// A unique identifier representing your end-user, which can help
   /// OpenAI to monitor and detect abuse.
+  ///
+  /// [Lear more](https://beta.openai.com/docs/guides/safety-best-practices/end-user-ids)
+  ///
+  /// Must be one of `url` or `b64_json`.
   String? get user;
   @override
   @JsonKey(name: 'response_format')
-  int? get responseFormat;
+  String? get responseFormat;
   @override
   @JsonKey(ignore: true)
   _$$_ImageRequestCopyWith<_$_ImageRequest> get copyWith =>
