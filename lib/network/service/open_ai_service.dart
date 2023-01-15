@@ -162,18 +162,22 @@ abstract class OpenAIService extends ChopperService {
   @Multipart()
   Future<Response<Data<ImageUrl>>> createImageEdit(
     @PartFile("image") List<int> image,
+    @Part("prompt") String prompt, {
     @PartFile("mask") List<int>? mask,
-    @Part("prompt") String prompt,
     @Part("n") int? n,
     @Part("size") String? size,
-  );
+    @Part("response_format") String? responseFormat,
+    @Part("user") String? user,
+  });
 
   /// Creates a variation of a given image.
   @Post(path: "/v1/images/variations")
   @Multipart()
   Future<Response<Data<ImageUrl>>> createImageVariation(
-    @PartFile("image") List<int> image,
+    @PartFile("image") List<int> image, {
     @Part("n") int? n,
     @Part("size") String? size,
-  );
+    @Part("response_format") String? responseFormat,
+    @Part("user") String? user,
+  });
 }

@@ -82,7 +82,12 @@ class ExampleOpenAI extends ConsumerWidget {
                 onPressed: () => _generation(ref),
                 child: const Text("Generation"),
               ),
-              GeneratedImage(url: ref.watch(urlImageProvider))
+              GeneratedImage(url: ref.watch(urlImageProvider)),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => _editMistake(ref),
+                child: const Text("Edit mistake"),
+              ),
             ],
           ),
         ),
@@ -166,6 +171,22 @@ class ExampleOpenAI extends ConsumerWidget {
     log('$body');
 
     ref.read(urlImageProvider.notifier).state = body.data?.first.url;
+  }
+
+  Future<void> _editMistake(WidgetRef ref) async {
+    final responseModels = await ref.read(openAIService).createEdit(
+          const EditRequest(
+            input: 'Hello wrld!',
+            instruction: 'Fix the mistakes',
+            model: 'text-davinci-edit-001',
+          ),
+        );
+    if (!responseModels.isSuccessful) return;
+
+    final body = responseModels.body;
+    if (body == null) return;
+
+    log('$body');
   }
 }
 
