@@ -4,8 +4,11 @@ import 'package:chopper/chopper.dart';
 
 import '../../model/data.dart';
 
+/// Function used for converting json map to type [T]
 typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
 
+/// Custom converter class used by the chopper packge to convert
+/// a JSON to custom type.
 class OpenAITypeConverter extends JsonConverter {
   final Map<Type, JsonFactory> factories;
 
