@@ -158,10 +158,9 @@ class ExampleOpenAI extends ConsumerWidget {
   Future<void> _generation(WidgetRef ref) async {
     final responseModels = await ref.read(openAIService).createImage(
           const ImageRequest(
-            prompt: 'A real akita dog as superhero',
-            responseFormat: 'url',
-            user: 'unique-user-id'
-          ),
+              prompt: 'A real akita dog as superhero',
+              responseFormat: 'url',
+              user: 'unique-user-id'),
         );
     if (!responseModels.isSuccessful) return;
 
@@ -197,7 +196,7 @@ class GeneratedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(url == null || url!.isEmpty) return const IgnorePointer();
+    if (url == null || url!.isEmpty) return const IgnorePointer();
 
     return Image.network(url!);
   }

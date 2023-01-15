@@ -234,11 +234,13 @@ class _$OpenAIService extends OpenAIService {
   @override
   Future<Response<Data<ImageUrl>>> createImageEdit(
     List<int> image,
+    String prompt, {
     List<int>? mask,
-    String prompt,
     int? n,
     String? size,
-  ) {
+    String? responseFormat,
+    String? user,
+  }) {
     final Uri $url = Uri.parse('/v1/images/edits');
     final List<PartValue> $parts = <PartValue>[
       PartValue<String>(
@@ -252,6 +254,14 @@ class _$OpenAIService extends OpenAIService {
       PartValue<String?>(
         'size',
         size,
+      ),
+      PartValue<String?>(
+        'response_format',
+        responseFormat,
+      ),
+      PartValue<String?>(
+        'user',
+        user,
       ),
       PartValueFile<List<int>>(
         'image',
@@ -274,10 +284,12 @@ class _$OpenAIService extends OpenAIService {
 
   @override
   Future<Response<Data<ImageUrl>>> createImageVariation(
-    List<int> image,
+    List<int> image, {
     int? n,
     String? size,
-  ) {
+    String? responseFormat,
+    String? user,
+  }) {
     final Uri $url = Uri.parse('/v1/images/variations');
     final List<PartValue> $parts = <PartValue>[
       PartValue<int?>(
@@ -287,6 +299,14 @@ class _$OpenAIService extends OpenAIService {
       PartValue<String?>(
         'size',
         size,
+      ),
+      PartValue<String?>(
+        'response_format',
+        responseFormat,
+      ),
+      PartValue<String?>(
+        'user',
+        user,
       ),
       PartValueFile<List<int>>(
         'image',
