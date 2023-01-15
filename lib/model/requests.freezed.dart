@@ -20,10 +20,25 @@ CompletionRequest _$CompletionRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CompletionRequest {
+  /// The prompt(s) to generate completions for, encoded as a string,
+  /// array of strings, array of tokens, or array of
+  /// token arrays.
   String get prompt => throw _privateConstructorUsedError;
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
+  String get model => throw _privateConstructorUsedError;
+
+  /// The maximum number of [tokens](https://beta.openai.com/tokenizer)
+  /// to generate in the completion.
   @JsonKey(name: 'max_tokens')
   int? get maxTokens => throw _privateConstructorUsedError;
-  String? get model => throw _privateConstructorUsedError;
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   int get temperature => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,8 +55,8 @@ abstract class $CompletionRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {String prompt,
+      String model,
       @JsonKey(name: 'max_tokens') int? maxTokens,
-      String? model,
       int temperature});
 }
 
@@ -59,8 +74,8 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
   @override
   $Res call({
     Object? prompt = null,
+    Object? model = null,
     Object? maxTokens = freezed,
-    Object? model = freezed,
     Object? temperature = null,
   }) {
     return _then(_value.copyWith(
@@ -68,14 +83,14 @@ class _$CompletionRequestCopyWithImpl<$Res, $Val extends CompletionRequest>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String,
       maxTokens: freezed == maxTokens
           ? _value.maxTokens
           : maxTokens // ignore: cast_nullable_to_non_nullable
               as int?,
-      model: freezed == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
-              as String?,
       temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
@@ -94,8 +109,8 @@ abstract class _$$_CompletionRequestCopyWith<$Res>
   @useResult
   $Res call(
       {String prompt,
+      String model,
       @JsonKey(name: 'max_tokens') int? maxTokens,
-      String? model,
       int temperature});
 }
 
@@ -111,8 +126,8 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? prompt = null,
+    Object? model = null,
     Object? maxTokens = freezed,
-    Object? model = freezed,
     Object? temperature = null,
   }) {
     return _then(_$_CompletionRequest(
@@ -120,14 +135,14 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
           ? _value.prompt
           : prompt // ignore: cast_nullable_to_non_nullable
               as String,
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String,
       maxTokens: freezed == maxTokens
           ? _value.maxTokens
           : maxTokens // ignore: cast_nullable_to_non_nullable
               as int?,
-      model: freezed == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
-              as String?,
       temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
@@ -141,27 +156,42 @@ class __$$_CompletionRequestCopyWithImpl<$Res>
 class _$_CompletionRequest implements _CompletionRequest {
   const _$_CompletionRequest(
       {required this.prompt,
+      required this.model,
       @JsonKey(name: 'max_tokens') this.maxTokens,
-      this.model,
       this.temperature = 0});
 
   factory _$_CompletionRequest.fromJson(Map<String, dynamic> json) =>
       _$$_CompletionRequestFromJson(json);
 
+  /// The prompt(s) to generate completions for, encoded as a string,
+  /// array of strings, array of tokens, or array of
+  /// token arrays.
   @override
   final String prompt;
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
+  @override
+  final String model;
+
+  /// The maximum number of [tokens](https://beta.openai.com/tokenizer)
+  /// to generate in the completion.
   @override
   @JsonKey(name: 'max_tokens')
   final int? maxTokens;
-  @override
-  final String? model;
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   @override
   @JsonKey()
   final int temperature;
 
   @override
   String toString() {
-    return 'CompletionRequest(prompt: $prompt, maxTokens: $maxTokens, model: $model, temperature: $temperature)';
+    return 'CompletionRequest(prompt: $prompt, model: $model, maxTokens: $maxTokens, temperature: $temperature)';
   }
 
   @override
@@ -170,9 +200,9 @@ class _$_CompletionRequest implements _CompletionRequest {
         (other.runtimeType == runtimeType &&
             other is _$_CompletionRequest &&
             (identical(other.prompt, prompt) || other.prompt == prompt) &&
+            (identical(other.model, model) || other.model == model) &&
             (identical(other.maxTokens, maxTokens) ||
                 other.maxTokens == maxTokens) &&
-            (identical(other.model, model) || other.model == model) &&
             (identical(other.temperature, temperature) ||
                 other.temperature == temperature));
   }
@@ -180,7 +210,7 @@ class _$_CompletionRequest implements _CompletionRequest {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, prompt, maxTokens, model, temperature);
+      Object.hash(runtimeType, prompt, model, maxTokens, temperature);
 
   @JsonKey(ignore: true)
   @override
@@ -200,21 +230,37 @@ class _$_CompletionRequest implements _CompletionRequest {
 abstract class _CompletionRequest implements CompletionRequest {
   const factory _CompletionRequest(
       {required final String prompt,
+      required final String model,
       @JsonKey(name: 'max_tokens') final int? maxTokens,
-      final String? model,
       final int temperature}) = _$_CompletionRequest;
 
   factory _CompletionRequest.fromJson(Map<String, dynamic> json) =
       _$_CompletionRequest.fromJson;
 
   @override
+
+  /// The prompt(s) to generate completions for, encoded as a string,
+  /// array of strings, array of tokens, or array of
+  /// token arrays.
   String get prompt;
   @override
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
+  String get model;
+  @override
+
+  /// The maximum number of [tokens](https://beta.openai.com/tokenizer)
+  /// to generate in the completion.
   @JsonKey(name: 'max_tokens')
   int? get maxTokens;
   @override
-  String? get model;
-  @override
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   int get temperature;
   @override
   @JsonKey(ignore: true)
@@ -228,10 +274,24 @@ EditRequest _$EditRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EditRequest {
+  /// The instruction that tells the model how to edit the prompt.
   String get instruction => throw _privateConstructorUsedError;
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   String? get model => throw _privateConstructorUsedError;
+
+  /// The input text to use as a starting point for the edit.
   String? get input => throw _privateConstructorUsedError;
+
+  /// How many edits to generate for the input and instruction.
   int? get n => throw _privateConstructorUsedError;
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   double? get temperature => throw _privateConstructorUsedError;
   @JsonKey(name: 'top_p')
   double? get topP => throw _privateConstructorUsedError;
@@ -384,14 +444,28 @@ class _$_EditRequest implements _EditRequest {
   factory _$_EditRequest.fromJson(Map<String, dynamic> json) =>
       _$$_EditRequestFromJson(json);
 
+  /// The instruction that tells the model how to edit the prompt.
   @override
   final String instruction;
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   @override
   final String? model;
+
+  /// The input text to use as a starting point for the edit.
   @override
   final String? input;
+
+  /// How many edits to generate for the input and instruction.
   @override
   final int? n;
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   @override
   final double? temperature;
   @override
@@ -450,14 +524,29 @@ abstract class _EditRequest implements EditRequest {
       _$_EditRequest.fromJson;
 
   @override
+
+  /// The instruction that tells the model how to edit the prompt.
   String get instruction;
   @override
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   String? get model;
   @override
+
+  /// The input text to use as a starting point for the edit.
   String? get input;
   @override
+
+  /// How many edits to generate for the input and instruction.
   int? get n;
   @override
+
+  /// What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277?gi=3d1b289238b6)
+  /// to use. Higher values means the model will take more risks.
   double? get temperature;
   @override
   @JsonKey(name: 'top_p')
@@ -474,8 +563,22 @@ EmbeddingRequest _$EmbeddingRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbeddingRequest {
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   String? get model => throw _privateConstructorUsedError;
+
+  /// Input text to get embeddings for, encoded as a string or array of tokens.
+  ///
+  /// To get embeddings for multiple inputs in a single request, pass an array
+  /// of strings or array of token arrays. Each input must not exceed 8192
+  /// tokens in length.
   List<String> get input => throw _privateConstructorUsedError;
+
+  /// A unique identifier representing your end-user, which can help OpenAI to
+  /// monitor and detect abuse.
   String? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -580,9 +683,26 @@ class _$_EmbeddingRequest implements _EmbeddingRequest {
   factory _$_EmbeddingRequest.fromJson(Map<String, dynamic> json) =>
       _$$_EmbeddingRequestFromJson(json);
 
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   @override
   final String? model;
+
+  /// Input text to get embeddings for, encoded as a string or array of tokens.
+  ///
+  /// To get embeddings for multiple inputs in a single request, pass an array
+  /// of strings or array of token arrays. Each input must not exceed 8192
+  /// tokens in length.
   final List<String> _input;
+
+  /// Input text to get embeddings for, encoded as a string or array of tokens.
+  ///
+  /// To get embeddings for multiple inputs in a single request, pass an array
+  /// of strings or array of token arrays. Each input must not exceed 8192
+  /// tokens in length.
   @override
   List<String> get input {
     if (_input is EqualUnmodifiableListView) return _input;
@@ -590,6 +710,8 @@ class _$_EmbeddingRequest implements _EmbeddingRequest {
     return EqualUnmodifiableListView(_input);
   }
 
+  /// A unique identifier representing your end-user, which can help OpenAI to
+  /// monitor and detect abuse.
   @override
   final String? user;
 
@@ -637,10 +759,25 @@ abstract class _EmbeddingRequest implements EmbeddingRequest {
       _$_EmbeddingRequest.fromJson;
 
   @override
+
+  /// ID of the model to use. You can use the
+  /// [List models API](https://beta.openai.com/docs/api-reference/models/list)
+  /// to see all of your available models, or see our
+  /// [Model overview](https://beta.openai.com/docs/models/overview)
+  /// for descriptions of them.
   String? get model;
   @override
+
+  /// Input text to get embeddings for, encoded as a string or array of tokens.
+  ///
+  /// To get embeddings for multiple inputs in a single request, pass an array
+  /// of strings or array of token arrays. Each input must not exceed 8192
+  /// tokens in length.
   List<String> get input;
   @override
+
+  /// A unique identifier representing your end-user, which can help OpenAI to
+  /// monitor and detect abuse.
   String? get user;
   @override
   @JsonKey(ignore: true)
@@ -654,25 +791,92 @@ FineTuneRequest _$FineTuneRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FineTuneRequest {
+  /// The ID of an uploaded file that contains training data.
+  /// See [upload file](https://beta.openai.com/docs/api-reference/files/upload)
+  /// for how to upload a file.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @JsonKey(name: 'training_file')
   String get trainingFile => throw _privateConstructorUsedError;
+
+  /// The ID of an uploaded file that contains validation data.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @JsonKey(name: 'validation_file')
   String? get validationFile => throw _privateConstructorUsedError;
+
+  /// The name of the base model to fine-tune. You can select one of "ada",
+  /// "babbage", "curie", "davinci", or a fine-tuned model created after
+  /// 2022-04-21.
   String? get model => throw _privateConstructorUsedError;
+
+  /// The number of epochs to train the model for. An epoch refers to one
+  /// full cycle through the training dataset.
+  @JsonKey(name: 'n_epochs')
   int? get nEpochs => throw _privateConstructorUsedError;
+
+  /// The batch size to use for training. The batch size is the number of
+  /// training examples used to train a single forward and backward pass.
+  ///
+  /// By default, the batch size will be dynamically configured to be ~0.2%
+  /// of the number of examples in the training set, capped at 256 - in general,
+  /// we've found that larger batch sizes tend to work better for larger
+  /// datasets.
+  @JsonKey(name: 'batch_size')
   int? get batchSize => throw _privateConstructorUsedError;
+
+  /// The learning rate multiplier to use for training. The fine-tuning
+  /// learning rate is the original learning rate used for pretraining
+  /// multiplied by this value.
+  ///
+  /// By default, the learning rate multiplier is the 0.05, 0.1, or 0.2
+  /// depending on final batch_size (larger learning rates tend to perform
+  /// better with larger batch sizes). We recommend experimenting with values
+  /// in the range 0.02 to 0.2 to see what produces the best results.
   @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier => throw _privateConstructorUsedError;
+
+  /// The weight to use for loss on the prompt tokens. This controls how much
+  /// the model tries to learn to generate the prompt (as compared to the
+  /// completion which always has a weight of 1.0), and can add a stabilizing
+  /// effect to training when completions are short.
+  ///
+  /// If prompts are extremely long (relative to completions), it may make
+  /// sense to reduce this weight so as to avoid over-prioritizing learning
+  /// the prompt.
   @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight => throw _privateConstructorUsedError;
+
+  /// If set, we calculate classification-specific metrics such as accuracy
+  /// and F-1 score using the validation set at the end of every epoch.
+  ///
+  /// In order to compute classification metrics, you must provide a
+  /// `validation_file`. Additionally, you must specify `classification_n_classes`
+  /// for multiclass classification or `classification_positive_class` for binary
+  /// classification.
   @JsonKey(name: 'compute_classification_metrics')
   bool? get computeClassificationMetrics => throw _privateConstructorUsedError;
+
+  /// The number of classes in a classification task.
   @JsonKey(name: 'classification_n_classes')
   int? get classificationNClasses => throw _privateConstructorUsedError;
+
+  /// The positive class in binary classification.
   @JsonKey(name: 'classification_positive_class')
   String? get classificationPositiveClass => throw _privateConstructorUsedError;
+
+  /// If this is provided, we calculate F-beta scores at the specified beta
+  /// values. The F-beta score is a generalization of F-1 score. This is
+  /// only used for binary classification.
   @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas => throw _privateConstructorUsedError;
+
+  /// A string of up to 40 characters that will be added to your fine-tuned
+  /// model name.
   String? get suffix => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -693,8 +897,10 @@ abstract class $FineTuneRequestCopyWith<$Res> {
       @JsonKey(name: 'validation_file')
           String? validationFile,
       String? model,
-      int? nEpochs,
-      int? batchSize,
+      @JsonKey(name: 'n_epochs')
+          int? nEpochs,
+      @JsonKey(name: 'batch_size')
+          int? batchSize,
       @JsonKey(name: 'learning_rate_multiplier')
           double? learningRateMultiplier,
       @JsonKey(name: 'prompt_loss_weight')
@@ -803,8 +1009,10 @@ abstract class _$$_FineTuneRequestCopyWith<$Res>
       @JsonKey(name: 'validation_file')
           String? validationFile,
       String? model,
-      int? nEpochs,
-      int? batchSize,
+      @JsonKey(name: 'n_epochs')
+          int? nEpochs,
+      @JsonKey(name: 'batch_size')
+          int? batchSize,
       @JsonKey(name: 'learning_rate_multiplier')
           double? learningRateMultiplier,
       @JsonKey(name: 'prompt_loss_weight')
@@ -906,8 +1114,10 @@ class _$_FineTuneRequest implements _FineTuneRequest {
       @JsonKey(name: 'validation_file')
           this.validationFile,
       this.model,
-      this.nEpochs,
-      this.batchSize,
+      @JsonKey(name: 'n_epochs')
+          this.nEpochs,
+      @JsonKey(name: 'batch_size')
+          this.batchSize,
       @JsonKey(name: 'learning_rate_multiplier')
           this.learningRateMultiplier,
       @JsonKey(name: 'prompt_loss_weight')
@@ -926,34 +1136,102 @@ class _$_FineTuneRequest implements _FineTuneRequest {
   factory _$_FineTuneRequest.fromJson(Map<String, dynamic> json) =>
       _$$_FineTuneRequestFromJson(json);
 
+  /// The ID of an uploaded file that contains training data.
+  /// See [upload file](https://beta.openai.com/docs/api-reference/files/upload)
+  /// for how to upload a file.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @override
   @JsonKey(name: 'training_file')
   final String trainingFile;
+
+  /// The ID of an uploaded file that contains validation data.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @override
   @JsonKey(name: 'validation_file')
   final String? validationFile;
+
+  /// The name of the base model to fine-tune. You can select one of "ada",
+  /// "babbage", "curie", "davinci", or a fine-tuned model created after
+  /// 2022-04-21.
   @override
   final String? model;
+
+  /// The number of epochs to train the model for. An epoch refers to one
+  /// full cycle through the training dataset.
   @override
+  @JsonKey(name: 'n_epochs')
   final int? nEpochs;
+
+  /// The batch size to use for training. The batch size is the number of
+  /// training examples used to train a single forward and backward pass.
+  ///
+  /// By default, the batch size will be dynamically configured to be ~0.2%
+  /// of the number of examples in the training set, capped at 256 - in general,
+  /// we've found that larger batch sizes tend to work better for larger
+  /// datasets.
   @override
+  @JsonKey(name: 'batch_size')
   final int? batchSize;
+
+  /// The learning rate multiplier to use for training. The fine-tuning
+  /// learning rate is the original learning rate used for pretraining
+  /// multiplied by this value.
+  ///
+  /// By default, the learning rate multiplier is the 0.05, 0.1, or 0.2
+  /// depending on final batch_size (larger learning rates tend to perform
+  /// better with larger batch sizes). We recommend experimenting with values
+  /// in the range 0.02 to 0.2 to see what produces the best results.
   @override
   @JsonKey(name: 'learning_rate_multiplier')
   final double? learningRateMultiplier;
+
+  /// The weight to use for loss on the prompt tokens. This controls how much
+  /// the model tries to learn to generate the prompt (as compared to the
+  /// completion which always has a weight of 1.0), and can add a stabilizing
+  /// effect to training when completions are short.
+  ///
+  /// If prompts are extremely long (relative to completions), it may make
+  /// sense to reduce this weight so as to avoid over-prioritizing learning
+  /// the prompt.
   @override
   @JsonKey(name: 'prompt_loss_weight')
   final double? promptLossWeight;
+
+  /// If set, we calculate classification-specific metrics such as accuracy
+  /// and F-1 score using the validation set at the end of every epoch.
+  ///
+  /// In order to compute classification metrics, you must provide a
+  /// `validation_file`. Additionally, you must specify `classification_n_classes`
+  /// for multiclass classification or `classification_positive_class` for binary
+  /// classification.
   @override
   @JsonKey(name: 'compute_classification_metrics')
   final bool? computeClassificationMetrics;
+
+  /// The number of classes in a classification task.
   @override
   @JsonKey(name: 'classification_n_classes')
   final int? classificationNClasses;
+
+  /// The positive class in binary classification.
   @override
   @JsonKey(name: 'classification_positive_class')
   final String? classificationPositiveClass;
+
+  /// If this is provided, we calculate F-beta scores at the specified beta
+  /// values. The F-beta score is a generalization of F-1 score. This is
+  /// only used for binary classification.
   final List<double>? _classificationBetas;
+
+  /// If this is provided, we calculate F-beta scores at the specified beta
+  /// values. The F-beta score is a generalization of F-1 score. This is
+  /// only used for binary classification.
   @override
   @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas {
@@ -965,6 +1243,8 @@ class _$_FineTuneRequest implements _FineTuneRequest {
     return EqualUnmodifiableListView(value);
   }
 
+  /// A string of up to 40 characters that will be added to your fine-tuned
+  /// model name.
   @override
   final String? suffix;
 
@@ -1043,8 +1323,10 @@ abstract class _FineTuneRequest implements FineTuneRequest {
       @JsonKey(name: 'validation_file')
           final String? validationFile,
       final String? model,
-      final int? nEpochs,
-      final int? batchSize,
+      @JsonKey(name: 'n_epochs')
+          final int? nEpochs,
+      @JsonKey(name: 'batch_size')
+          final int? batchSize,
       @JsonKey(name: 'learning_rate_multiplier')
           final double? learningRateMultiplier,
       @JsonKey(name: 'prompt_loss_weight')
@@ -1063,36 +1345,104 @@ abstract class _FineTuneRequest implements FineTuneRequest {
       _$_FineTuneRequest.fromJson;
 
   @override
+
+  /// The ID of an uploaded file that contains training data.
+  /// See [upload file](https://beta.openai.com/docs/api-reference/files/upload)
+  /// for how to upload a file.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @JsonKey(name: 'training_file')
   String get trainingFile;
   @override
+
+  /// The ID of an uploaded file that contains validation data.
+  ///
+  /// Your dataset must be formatted as a JSONL file, where each training example
+  /// is a JSON object with the keys "prompt" and "completion". Additionally,
+  /// you must upload your file with the purpose fine-tune.
   @JsonKey(name: 'validation_file')
   String? get validationFile;
   @override
+
+  /// The name of the base model to fine-tune. You can select one of "ada",
+  /// "babbage", "curie", "davinci", or a fine-tuned model created after
+  /// 2022-04-21.
   String? get model;
   @override
+
+  /// The number of epochs to train the model for. An epoch refers to one
+  /// full cycle through the training dataset.
+  @JsonKey(name: 'n_epochs')
   int? get nEpochs;
   @override
+
+  /// The batch size to use for training. The batch size is the number of
+  /// training examples used to train a single forward and backward pass.
+  ///
+  /// By default, the batch size will be dynamically configured to be ~0.2%
+  /// of the number of examples in the training set, capped at 256 - in general,
+  /// we've found that larger batch sizes tend to work better for larger
+  /// datasets.
+  @JsonKey(name: 'batch_size')
   int? get batchSize;
   @override
+
+  /// The learning rate multiplier to use for training. The fine-tuning
+  /// learning rate is the original learning rate used for pretraining
+  /// multiplied by this value.
+  ///
+  /// By default, the learning rate multiplier is the 0.05, 0.1, or 0.2
+  /// depending on final batch_size (larger learning rates tend to perform
+  /// better with larger batch sizes). We recommend experimenting with values
+  /// in the range 0.02 to 0.2 to see what produces the best results.
   @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier;
   @override
+
+  /// The weight to use for loss on the prompt tokens. This controls how much
+  /// the model tries to learn to generate the prompt (as compared to the
+  /// completion which always has a weight of 1.0), and can add a stabilizing
+  /// effect to training when completions are short.
+  ///
+  /// If prompts are extremely long (relative to completions), it may make
+  /// sense to reduce this weight so as to avoid over-prioritizing learning
+  /// the prompt.
   @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight;
   @override
+
+  /// If set, we calculate classification-specific metrics such as accuracy
+  /// and F-1 score using the validation set at the end of every epoch.
+  ///
+  /// In order to compute classification metrics, you must provide a
+  /// `validation_file`. Additionally, you must specify `classification_n_classes`
+  /// for multiclass classification or `classification_positive_class` for binary
+  /// classification.
   @JsonKey(name: 'compute_classification_metrics')
   bool? get computeClassificationMetrics;
   @override
+
+  /// The number of classes in a classification task.
   @JsonKey(name: 'classification_n_classes')
   int? get classificationNClasses;
   @override
+
+  /// The positive class in binary classification.
   @JsonKey(name: 'classification_positive_class')
   String? get classificationPositiveClass;
   @override
+
+  /// If this is provided, we calculate F-beta scores at the specified beta
+  /// values. The F-beta score is a generalization of F-1 score. This is
+  /// only used for binary classification.
   @JsonKey(name: 'classification_betas')
   List<double>? get classificationBetas;
   @override
+
+  /// A string of up to 40 characters that will be added to your fine-tuned
+  /// model name.
   String? get suffix;
   @override
   @JsonKey(ignore: true)
@@ -1106,7 +1456,17 @@ ModerationRequest _$ModerationRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ModerationRequest {
+  /// The input text to classify
   String get input => throw _privateConstructorUsedError;
+
+  /// Two content moderations models are available: `text-moderation-stable`
+  /// and `text-moderation-latest`.
+  ///
+  /// The default is `text-moderation-latest` which will be automatically
+  /// upgraded over time. This ensures you are always using our most accurate
+  /// model. If you use `text-moderation-stable`, we will provide advanced
+  /// notice before updating the model. Accuracy of `text-moderation-stable`
+  /// may be slightly lower than for `text-moderation-latest`.
   String? get model => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1199,8 +1559,18 @@ class _$_ModerationRequest implements _ModerationRequest {
   factory _$_ModerationRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ModerationRequestFromJson(json);
 
+  /// The input text to classify
   @override
   final String input;
+
+  /// Two content moderations models are available: `text-moderation-stable`
+  /// and `text-moderation-latest`.
+  ///
+  /// The default is `text-moderation-latest` which will be automatically
+  /// upgraded over time. This ensures you are always using our most accurate
+  /// model. If you use `text-moderation-stable`, we will provide advanced
+  /// notice before updating the model. Accuracy of `text-moderation-stable`
+  /// may be slightly lower than for `text-moderation-latest`.
   @override
   final String? model;
 
@@ -1246,8 +1616,19 @@ abstract class _ModerationRequest implements ModerationRequest {
       _$_ModerationRequest.fromJson;
 
   @override
+
+  /// The input text to classify
   String get input;
   @override
+
+  /// Two content moderations models are available: `text-moderation-stable`
+  /// and `text-moderation-latest`.
+  ///
+  /// The default is `text-moderation-latest` which will be automatically
+  /// upgraded over time. This ensures you are always using our most accurate
+  /// model. If you use `text-moderation-stable`, we will provide advanced
+  /// notice before updating the model. Accuracy of `text-moderation-stable`
+  /// may be slightly lower than for `text-moderation-latest`.
   String? get model;
   @override
   @JsonKey(ignore: true)
@@ -1261,9 +1642,19 @@ ImageRequest _$ImageRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageRequest {
+  /// A text description of the desired image(s). The maximum length
+  /// is 1000 characters.
   String get prompt => throw _privateConstructorUsedError;
+
+  /// The number of images to generate. Must be between 1 and 10.
   int? get n => throw _privateConstructorUsedError;
+
+  /// The size of the generated images. Must be one of `256x256`,
+  /// `512x512`, or `1024x1024`.
   int? get size => throw _privateConstructorUsedError;
+
+  /// A unique identifier representing your end-user, which can help
+  /// OpenAI to monitor and detect abuse.
   String? get user => throw _privateConstructorUsedError;
   @JsonKey(name: 'response_format')
   int? get responseFormat => throw _privateConstructorUsedError;
@@ -1403,12 +1794,22 @@ class _$_ImageRequest implements _ImageRequest {
   factory _$_ImageRequest.fromJson(Map<String, dynamic> json) =>
       _$$_ImageRequestFromJson(json);
 
+  /// A text description of the desired image(s). The maximum length
+  /// is 1000 characters.
   @override
   final String prompt;
+
+  /// The number of images to generate. Must be between 1 and 10.
   @override
   final int? n;
+
+  /// The size of the generated images. Must be one of `256x256`,
+  /// `512x512`, or `1024x1024`.
   @override
   final int? size;
+
+  /// A unique identifier representing your end-user, which can help
+  /// OpenAI to monitor and detect abuse.
   @override
   final String? user;
   @override
@@ -1465,12 +1866,23 @@ abstract class _ImageRequest implements ImageRequest {
       _$_ImageRequest.fromJson;
 
   @override
+
+  /// A text description of the desired image(s). The maximum length
+  /// is 1000 characters.
   String get prompt;
   @override
+
+  /// The number of images to generate. Must be between 1 and 10.
   int? get n;
   @override
+
+  /// The size of the generated images. Must be one of `256x256`,
+  /// `512x512`, or `1024x1024`.
   int? get size;
   @override
+
+  /// A unique identifier representing your end-user, which can help
+  /// OpenAI to monitor and detect abuse.
   String? get user;
   @override
   @JsonKey(name: 'response_format')

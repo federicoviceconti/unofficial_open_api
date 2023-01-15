@@ -515,9 +515,12 @@ LogProb _$LogProbFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LogProb {
   List<String>? get tokens => throw _privateConstructorUsedError;
+  @JsonKey(name: "token_logprobs")
   List<double>? get tokenLogprobs => throw _privateConstructorUsedError;
+  @JsonKey(name: "top_logprobs")
   List<Map<String, double>>? get topLogprobs =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: "text_offset")
   List<int>? get textOffset => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -532,9 +535,9 @@ abstract class $LogProbCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String>? tokens,
-      List<double>? tokenLogprobs,
-      List<Map<String, double>>? topLogprobs,
-      List<int>? textOffset});
+      @JsonKey(name: "token_logprobs") List<double>? tokenLogprobs,
+      @JsonKey(name: "top_logprobs") List<Map<String, double>>? topLogprobs,
+      @JsonKey(name: "text_offset") List<int>? textOffset});
 }
 
 /// @nodoc
@@ -585,9 +588,9 @@ abstract class _$$_LogProbCopyWith<$Res> implements $LogProbCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String>? tokens,
-      List<double>? tokenLogprobs,
-      List<Map<String, double>>? topLogprobs,
-      List<int>? textOffset});
+      @JsonKey(name: "token_logprobs") List<double>? tokenLogprobs,
+      @JsonKey(name: "top_logprobs") List<Map<String, double>>? topLogprobs,
+      @JsonKey(name: "text_offset") List<int>? textOffset});
 }
 
 /// @nodoc
@@ -631,9 +634,12 @@ class __$$_LogProbCopyWithImpl<$Res>
 class _$_LogProb implements _LogProb {
   const _$_LogProb(
       {final List<String>? tokens,
-      final List<double>? tokenLogprobs,
-      final List<Map<String, double>>? topLogprobs,
-      final List<int>? textOffset})
+      @JsonKey(name: "token_logprobs")
+          final List<double>? tokenLogprobs,
+      @JsonKey(name: "top_logprobs")
+          final List<Map<String, double>>? topLogprobs,
+      @JsonKey(name: "text_offset")
+          final List<int>? textOffset})
       : _tokens = tokens,
         _tokenLogprobs = tokenLogprobs,
         _topLogprobs = topLogprobs,
@@ -654,6 +660,7 @@ class _$_LogProb implements _LogProb {
 
   final List<double>? _tokenLogprobs;
   @override
+  @JsonKey(name: "token_logprobs")
   List<double>? get tokenLogprobs {
     final value = _tokenLogprobs;
     if (value == null) return null;
@@ -664,6 +671,7 @@ class _$_LogProb implements _LogProb {
 
   final List<Map<String, double>>? _topLogprobs;
   @override
+  @JsonKey(name: "top_logprobs")
   List<Map<String, double>>? get topLogprobs {
     final value = _topLogprobs;
     if (value == null) return null;
@@ -674,6 +682,7 @@ class _$_LogProb implements _LogProb {
 
   final List<int>? _textOffset;
   @override
+  @JsonKey(name: "text_offset")
   List<int>? get textOffset {
     final value = _textOffset;
     if (value == null) return null;
@@ -727,19 +736,25 @@ class _$_LogProb implements _LogProb {
 abstract class _LogProb implements LogProb {
   const factory _LogProb(
       {final List<String>? tokens,
-      final List<double>? tokenLogprobs,
-      final List<Map<String, double>>? topLogprobs,
-      final List<int>? textOffset}) = _$_LogProb;
+      @JsonKey(name: "token_logprobs")
+          final List<double>? tokenLogprobs,
+      @JsonKey(name: "top_logprobs")
+          final List<Map<String, double>>? topLogprobs,
+      @JsonKey(name: "text_offset")
+          final List<int>? textOffset}) = _$_LogProb;
 
   factory _LogProb.fromJson(Map<String, dynamic> json) = _$_LogProb.fromJson;
 
   @override
   List<String>? get tokens;
   @override
+  @JsonKey(name: "token_logprobs")
   List<double>? get tokenLogprobs;
   @override
+  @JsonKey(name: "top_logprobs")
   List<Map<String, double>>? get topLogprobs;
   @override
+  @JsonKey(name: "text_offset")
   List<int>? get textOffset;
   @override
   @JsonKey(ignore: true)

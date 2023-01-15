@@ -150,20 +150,6 @@ class _$OpenAIService extends OpenAIService {
   }
 
   @override
-  Future<Response<Completion>> createFineTuneCompletion(
-      CompletionRequest request) {
-    final Uri $url = Uri.parse('/v1/completions');
-    final $body = request;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-    );
-    return client.send<Completion, Completion>($request);
-  }
-
-  @override
   Future<Response<Data<FineTune>>> getFineTunes() {
     final Uri $url = Uri.parse('/v1/fine-tunes');
     final Request $request = Request(

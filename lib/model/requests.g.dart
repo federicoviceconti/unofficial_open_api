@@ -9,8 +9,8 @@ part of 'requests.dart';
 _$_CompletionRequest _$$_CompletionRequestFromJson(Map<String, dynamic> json) =>
     _$_CompletionRequest(
       prompt: json['prompt'] as String,
+      model: json['model'] as String,
       maxTokens: json['max_tokens'] as int?,
-      model: json['model'] as String?,
       temperature: json['temperature'] as int? ?? 0,
     );
 
@@ -18,8 +18,8 @@ Map<String, dynamic> _$$_CompletionRequestToJson(
         _$_CompletionRequest instance) =>
     <String, dynamic>{
       'prompt': instance.prompt,
-      'max_tokens': instance.maxTokens,
       'model': instance.model,
+      'max_tokens': instance.maxTokens,
       'temperature': instance.temperature,
     };
 
@@ -62,8 +62,8 @@ _$_FineTuneRequest _$$_FineTuneRequestFromJson(Map<String, dynamic> json) =>
       trainingFile: json['training_file'] as String,
       validationFile: json['validation_file'] as String?,
       model: json['model'] as String?,
-      nEpochs: json['nEpochs'] as int?,
-      batchSize: json['batchSize'] as int?,
+      nEpochs: json['n_epochs'] as int?,
+      batchSize: json['batch_size'] as int?,
       learningRateMultiplier:
           (json['learning_rate_multiplier'] as num?)?.toDouble(),
       promptLossWeight: (json['prompt_loss_weight'] as num?)?.toDouble(),
@@ -83,8 +83,8 @@ Map<String, dynamic> _$$_FineTuneRequestToJson(_$_FineTuneRequest instance) =>
       'training_file': instance.trainingFile,
       'validation_file': instance.validationFile,
       'model': instance.model,
-      'nEpochs': instance.nEpochs,
-      'batchSize': instance.batchSize,
+      'n_epochs': instance.nEpochs,
+      'batch_size': instance.batchSize,
       'learning_rate_multiplier': instance.learningRateMultiplier,
       'prompt_loss_weight': instance.promptLossWeight,
       'compute_classification_metrics': instance.computeClassificationMetrics,

@@ -51,22 +51,23 @@ Map<String, dynamic> _$$_CompletionChoiceToJson(_$_CompletionChoice instance) =>
 _$_LogProb _$$_LogProbFromJson(Map<String, dynamic> json) => _$_LogProb(
       tokens:
           (json['tokens'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      tokenLogprobs: (json['tokenLogprobs'] as List<dynamic>?)
+      tokenLogprobs: (json['token_logprobs'] as List<dynamic>?)
           ?.map((e) => (e as num).toDouble())
           .toList(),
-      topLogprobs: (json['topLogprobs'] as List<dynamic>?)
+      topLogprobs: (json['top_logprobs'] as List<dynamic>?)
           ?.map((e) => (e as Map<String, dynamic>).map(
                 (k, e) => MapEntry(k, (e as num).toDouble()),
               ))
           .toList(),
-      textOffset:
-          (json['textOffset'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      textOffset: (json['text_offset'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_LogProbToJson(_$_LogProb instance) =>
     <String, dynamic>{
       'tokens': instance.tokens,
-      'tokenLogprobs': instance.tokenLogprobs,
-      'topLogprobs': instance.topLogprobs,
-      'textOffset': instance.textOffset,
+      'token_logprobs': instance.tokenLogprobs,
+      'top_logprobs': instance.topLogprobs,
+      'text_offset': instance.textOffset,
     };

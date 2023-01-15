@@ -59,7 +59,7 @@ abstract class OpenAIService extends ChopperService {
   @Get(path: "v1/models")
   Future<Response<Data<Model>>> getModels();
 
-  /// Retrieves a model instance, providing basic information about the model such 
+  /// Retrieves a model instance, providing basic information about the model such
   /// as the owner and permissioning.
   @Get(path: "/v1/models/{model_id}")
   Future<Response<Model>> getModel({@Path("model_id") required String modelId});
@@ -84,9 +84,9 @@ abstract class OpenAIService extends ChopperService {
   @Get(path: "/v1/files")
   Future<Response<Data<File>>> getFiles();
 
-  /// Upload a file that contains document(s) to be used across various 
-  /// endpoints/features. Currently, the size of all the files uploaded by one 
-  /// organization can be up to 1 GB. Please contact us if you need to increase 
+  /// Upload a file that contains document(s) to be used across various
+  /// endpoints/features. Currently, the size of all the files uploaded by one
+  /// organization can be up to 1 GB. Please contact us if you need to increase
   /// the storage limit.
   @Multipart()
   @Post(path: "/v1/files")
@@ -108,7 +108,7 @@ abstract class OpenAIService extends ChopperService {
   );
 
   /// Creates a job that fine-tunes a specified model from a given dataset.
-  /// Response includes details of the enqueued job including job status and 
+  /// Response includes details of the enqueued job including job status and
   /// the name of the fine-tuned models once complete.
   @Post(path: "/v1/fine-tunes")
   Future<Response<FineTune>> createFineTune(@Body() FineTuneRequest request);
@@ -135,7 +135,7 @@ abstract class OpenAIService extends ChopperService {
     @Path("fine_tune_id") required String fineTuneId,
   });
 
-  /// Delete a fine-tuned model. You must have the Owner role in your 
+  /// Delete a fine-tuned model. You must have the Owner role in your
   /// organization.
   @Delete(path: "/v1/models/{fine_tune_id}")
   Future<Response<Delete>> deleteFineTune({
@@ -154,7 +154,7 @@ abstract class OpenAIService extends ChopperService {
     @Body() ImageRequest request,
   );
 
-  /// Creates an edited or extended image given an original image 
+  /// Creates an edited or extended image given an original image
   /// and a prompt.
   @Post(path: "/v1/images/edits")
   @Multipart()

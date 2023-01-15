@@ -71,7 +71,7 @@ _$_HyperParameters _$$_HyperParametersFromJson(Map<String, dynamic> json) =>
       batchSize: json['batch_size'] as String?,
       learningRateMultiplier:
           (json['learning_rate_multiplier'] as num?)?.toDouble(),
-      nEpochs: json['nEpochs'] as int?,
+      nEpochs: json['n_epochs'] as int?,
       promptLossWeight: (json['prompt_loss_weight'] as num?)?.toDouble(),
     );
 
@@ -79,6 +79,6 @@ Map<String, dynamic> _$$_HyperParametersToJson(_$_HyperParameters instance) =>
     <String, dynamic>{
       'batch_size': instance.batchSize,
       'learning_rate_multiplier': instance.learningRateMultiplier,
-      'nEpochs': instance.nEpochs,
+      'n_epochs': instance.nEpochs,
       'prompt_loss_weight': instance.promptLossWeight,
     };

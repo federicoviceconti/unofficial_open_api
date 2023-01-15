@@ -23,22 +23,22 @@ mixin _$FineTune {
   String? get id => throw _privateConstructorUsedError;
   String? get object => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   int? get createdAt => throw _privateConstructorUsedError;
   List<FineTuneEvent>? get events => throw _privateConstructorUsedError;
-  @JsonKey(name: "fine_tuned_model")
+  @JsonKey(name: 'fine_tuned_model')
   String? get fineTunedModel => throw _privateConstructorUsedError;
   HyperParameters? get hyperparams => throw _privateConstructorUsedError;
-  @JsonKey(name: "organization_id")
+  @JsonKey(name: 'organization_id')
   String? get organizationId => throw _privateConstructorUsedError;
-  @JsonKey(name: "result_files")
+  @JsonKey(name: 'result_files')
   List<File>? get resultFiles => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
-  @JsonKey(name: "training_files")
+  @JsonKey(name: 'training_files')
   List<File>? get trainingFiles => throw _privateConstructorUsedError;
-  @JsonKey(name: "updated_at")
+  @JsonKey(name: 'updated_at')
   int? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "validation_files")
+  @JsonKey(name: 'validation_files')
   List<File>? get validationFiles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,16 +56,16 @@ abstract class $FineTuneCopyWith<$Res> {
       {String? id,
       String? object,
       String? model,
-      @JsonKey(name: "created_at") int? createdAt,
+      @JsonKey(name: 'created_at') int? createdAt,
       List<FineTuneEvent>? events,
-      @JsonKey(name: "fine_tuned_model") String? fineTunedModel,
+      @JsonKey(name: 'fine_tuned_model') String? fineTunedModel,
       HyperParameters? hyperparams,
-      @JsonKey(name: "organization_id") String? organizationId,
-      @JsonKey(name: "result_files") List<File>? resultFiles,
+      @JsonKey(name: 'organization_id') String? organizationId,
+      @JsonKey(name: 'result_files') List<File>? resultFiles,
       String? status,
-      @JsonKey(name: "training_files") List<File>? trainingFiles,
-      @JsonKey(name: "updated_at") int? updatedAt,
-      @JsonKey(name: "validation_files") List<File>? validationFiles});
+      @JsonKey(name: 'training_files') List<File>? trainingFiles,
+      @JsonKey(name: 'updated_at') int? updatedAt,
+      @JsonKey(name: 'validation_files') List<File>? validationFiles});
 
   $HyperParametersCopyWith<$Res>? get hyperparams;
 }
@@ -177,16 +177,16 @@ abstract class _$$_FineTuneCopyWith<$Res> implements $FineTuneCopyWith<$Res> {
       {String? id,
       String? object,
       String? model,
-      @JsonKey(name: "created_at") int? createdAt,
+      @JsonKey(name: 'created_at') int? createdAt,
       List<FineTuneEvent>? events,
-      @JsonKey(name: "fine_tuned_model") String? fineTunedModel,
+      @JsonKey(name: 'fine_tuned_model') String? fineTunedModel,
       HyperParameters? hyperparams,
-      @JsonKey(name: "organization_id") String? organizationId,
-      @JsonKey(name: "result_files") List<File>? resultFiles,
+      @JsonKey(name: 'organization_id') String? organizationId,
+      @JsonKey(name: 'result_files') List<File>? resultFiles,
       String? status,
-      @JsonKey(name: "training_files") List<File>? trainingFiles,
-      @JsonKey(name: "updated_at") int? updatedAt,
-      @JsonKey(name: "validation_files") List<File>? validationFiles});
+      @JsonKey(name: 'training_files') List<File>? trainingFiles,
+      @JsonKey(name: 'updated_at') int? updatedAt,
+      @JsonKey(name: 'validation_files') List<File>? validationFiles});
 
   @override
   $HyperParametersCopyWith<$Res>? get hyperparams;
@@ -281,16 +281,16 @@ class _$_FineTune implements _FineTune {
       {this.id,
       this.object,
       this.model,
-      @JsonKey(name: "created_at") this.createdAt,
+      @JsonKey(name: 'created_at') this.createdAt,
       final List<FineTuneEvent>? events,
-      @JsonKey(name: "fine_tuned_model") this.fineTunedModel,
+      @JsonKey(name: 'fine_tuned_model') this.fineTunedModel,
       this.hyperparams,
-      @JsonKey(name: "organization_id") this.organizationId,
-      @JsonKey(name: "result_files") final List<File>? resultFiles,
+      @JsonKey(name: 'organization_id') this.organizationId,
+      @JsonKey(name: 'result_files') final List<File>? resultFiles,
       this.status,
-      @JsonKey(name: "training_files") final List<File>? trainingFiles,
-      @JsonKey(name: "updated_at") this.updatedAt,
-      @JsonKey(name: "validation_files") final List<File>? validationFiles})
+      @JsonKey(name: 'training_files') final List<File>? trainingFiles,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      @JsonKey(name: 'validation_files') final List<File>? validationFiles})
       : _events = events,
         _resultFiles = resultFiles,
         _trainingFiles = trainingFiles,
@@ -306,7 +306,7 @@ class _$_FineTune implements _FineTune {
   @override
   final String? model;
   @override
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   final int? createdAt;
   final List<FineTuneEvent>? _events;
   @override
@@ -319,16 +319,16 @@ class _$_FineTune implements _FineTune {
   }
 
   @override
-  @JsonKey(name: "fine_tuned_model")
+  @JsonKey(name: 'fine_tuned_model')
   final String? fineTunedModel;
   @override
   final HyperParameters? hyperparams;
   @override
-  @JsonKey(name: "organization_id")
+  @JsonKey(name: 'organization_id')
   final String? organizationId;
   final List<File>? _resultFiles;
   @override
-  @JsonKey(name: "result_files")
+  @JsonKey(name: 'result_files')
   List<File>? get resultFiles {
     final value = _resultFiles;
     if (value == null) return null;
@@ -341,7 +341,7 @@ class _$_FineTune implements _FineTune {
   final String? status;
   final List<File>? _trainingFiles;
   @override
-  @JsonKey(name: "training_files")
+  @JsonKey(name: 'training_files')
   List<File>? get trainingFiles {
     final value = _trainingFiles;
     if (value == null) return null;
@@ -351,11 +351,11 @@ class _$_FineTune implements _FineTune {
   }
 
   @override
-  @JsonKey(name: "updated_at")
+  @JsonKey(name: 'updated_at')
   final int? updatedAt;
   final List<File>? _validationFiles;
   @override
-  @JsonKey(name: "validation_files")
+  @JsonKey(name: 'validation_files')
   List<File>? get validationFiles {
     final value = _validationFiles;
     if (value == null) return null;
@@ -434,22 +434,22 @@ abstract class _FineTune implements FineTune {
       {final String? id,
       final String? object,
       final String? model,
-      @JsonKey(name: "created_at")
+      @JsonKey(name: 'created_at')
           final int? createdAt,
       final List<FineTuneEvent>? events,
-      @JsonKey(name: "fine_tuned_model")
+      @JsonKey(name: 'fine_tuned_model')
           final String? fineTunedModel,
       final HyperParameters? hyperparams,
-      @JsonKey(name: "organization_id")
+      @JsonKey(name: 'organization_id')
           final String? organizationId,
-      @JsonKey(name: "result_files")
+      @JsonKey(name: 'result_files')
           final List<File>? resultFiles,
       final String? status,
-      @JsonKey(name: "training_files")
+      @JsonKey(name: 'training_files')
           final List<File>? trainingFiles,
-      @JsonKey(name: "updated_at")
+      @JsonKey(name: 'updated_at')
           final int? updatedAt,
-      @JsonKey(name: "validation_files")
+      @JsonKey(name: 'validation_files')
           final List<File>? validationFiles}) = _$_FineTune;
 
   factory _FineTune.fromJson(Map<String, dynamic> json) = _$_FineTune.fromJson;
@@ -461,31 +461,31 @@ abstract class _FineTune implements FineTune {
   @override
   String? get model;
   @override
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   int? get createdAt;
   @override
   List<FineTuneEvent>? get events;
   @override
-  @JsonKey(name: "fine_tuned_model")
+  @JsonKey(name: 'fine_tuned_model')
   String? get fineTunedModel;
   @override
   HyperParameters? get hyperparams;
   @override
-  @JsonKey(name: "organization_id")
+  @JsonKey(name: 'organization_id')
   String? get organizationId;
   @override
-  @JsonKey(name: "result_files")
+  @JsonKey(name: 'result_files')
   List<File>? get resultFiles;
   @override
   String? get status;
   @override
-  @JsonKey(name: "training_files")
+  @JsonKey(name: 'training_files')
   List<File>? get trainingFiles;
   @override
-  @JsonKey(name: "updated_at")
+  @JsonKey(name: 'updated_at')
   int? get updatedAt;
   @override
-  @JsonKey(name: "validation_files")
+  @JsonKey(name: 'validation_files')
   List<File>? get validationFiles;
   @override
   @JsonKey(ignore: true)
@@ -500,7 +500,7 @@ FineTuneEvent _$FineTuneEventFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FineTuneEvent {
   String? get object => throw _privateConstructorUsedError;
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   int? get createdAt => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
@@ -519,7 +519,7 @@ abstract class $FineTuneEventCopyWith<$Res> {
   @useResult
   $Res call(
       {String? object,
-      @JsonKey(name: "created_at") int? createdAt,
+      @JsonKey(name: 'created_at') int? createdAt,
       String? level,
       String? message});
 }
@@ -573,7 +573,7 @@ abstract class _$$_FineTuneEventCopyWith<$Res>
   @useResult
   $Res call(
       {String? object,
-      @JsonKey(name: "created_at") int? createdAt,
+      @JsonKey(name: 'created_at') int? createdAt,
       String? level,
       String? message});
 }
@@ -620,7 +620,7 @@ class __$$_FineTuneEventCopyWithImpl<$Res>
 class _$_FineTuneEvent implements _FineTuneEvent {
   const _$_FineTuneEvent(
       {this.object,
-      @JsonKey(name: "created_at") this.createdAt,
+      @JsonKey(name: 'created_at') this.createdAt,
       this.level,
       this.message});
 
@@ -630,7 +630,7 @@ class _$_FineTuneEvent implements _FineTuneEvent {
   @override
   final String? object;
   @override
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   final int? createdAt;
   @override
   final String? level;
@@ -676,7 +676,7 @@ class _$_FineTuneEvent implements _FineTuneEvent {
 abstract class _FineTuneEvent implements FineTuneEvent {
   const factory _FineTuneEvent(
       {final String? object,
-      @JsonKey(name: "created_at") final int? createdAt,
+      @JsonKey(name: 'created_at') final int? createdAt,
       final String? level,
       final String? message}) = _$_FineTuneEvent;
 
@@ -686,7 +686,7 @@ abstract class _FineTuneEvent implements FineTuneEvent {
   @override
   String? get object;
   @override
-  @JsonKey(name: "created_at")
+  @JsonKey(name: 'created_at')
   int? get createdAt;
   @override
   String? get level;
@@ -704,12 +704,13 @@ HyperParameters _$HyperParametersFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HyperParameters {
-  @JsonKey(name: "batch_size")
+  @JsonKey(name: 'batch_size')
   String? get batchSize => throw _privateConstructorUsedError;
-  @JsonKey(name: "learning_rate_multiplier")
+  @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier => throw _privateConstructorUsedError;
+  @JsonKey(name: 'n_epochs')
   int? get nEpochs => throw _privateConstructorUsedError;
-  @JsonKey(name: "prompt_loss_weight")
+  @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -725,10 +726,10 @@ abstract class $HyperParametersCopyWith<$Res> {
       _$HyperParametersCopyWithImpl<$Res, HyperParameters>;
   @useResult
   $Res call(
-      {@JsonKey(name: "batch_size") String? batchSize,
-      @JsonKey(name: "learning_rate_multiplier") double? learningRateMultiplier,
-      int? nEpochs,
-      @JsonKey(name: "prompt_loss_weight") double? promptLossWeight});
+      {@JsonKey(name: 'batch_size') String? batchSize,
+      @JsonKey(name: 'learning_rate_multiplier') double? learningRateMultiplier,
+      @JsonKey(name: 'n_epochs') int? nEpochs,
+      @JsonKey(name: 'prompt_loss_weight') double? promptLossWeight});
 }
 
 /// @nodoc
@@ -779,10 +780,10 @@ abstract class _$$_HyperParametersCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "batch_size") String? batchSize,
-      @JsonKey(name: "learning_rate_multiplier") double? learningRateMultiplier,
-      int? nEpochs,
-      @JsonKey(name: "prompt_loss_weight") double? promptLossWeight});
+      {@JsonKey(name: 'batch_size') String? batchSize,
+      @JsonKey(name: 'learning_rate_multiplier') double? learningRateMultiplier,
+      @JsonKey(name: 'n_epochs') int? nEpochs,
+      @JsonKey(name: 'prompt_loss_weight') double? promptLossWeight});
 }
 
 /// @nodoc
@@ -826,24 +827,25 @@ class __$$_HyperParametersCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HyperParameters implements _HyperParameters {
   const _$_HyperParameters(
-      {@JsonKey(name: "batch_size") this.batchSize,
-      @JsonKey(name: "learning_rate_multiplier") this.learningRateMultiplier,
-      this.nEpochs,
-      @JsonKey(name: "prompt_loss_weight") this.promptLossWeight});
+      {@JsonKey(name: 'batch_size') this.batchSize,
+      @JsonKey(name: 'learning_rate_multiplier') this.learningRateMultiplier,
+      @JsonKey(name: 'n_epochs') this.nEpochs,
+      @JsonKey(name: 'prompt_loss_weight') this.promptLossWeight});
 
   factory _$_HyperParameters.fromJson(Map<String, dynamic> json) =>
       _$$_HyperParametersFromJson(json);
 
   @override
-  @JsonKey(name: "batch_size")
+  @JsonKey(name: 'batch_size')
   final String? batchSize;
   @override
-  @JsonKey(name: "learning_rate_multiplier")
+  @JsonKey(name: 'learning_rate_multiplier')
   final double? learningRateMultiplier;
   @override
+  @JsonKey(name: 'n_epochs')
   final int? nEpochs;
   @override
-  @JsonKey(name: "prompt_loss_weight")
+  @JsonKey(name: 'prompt_loss_weight')
   final double? promptLossWeight;
 
   @override
@@ -886,27 +888,29 @@ class _$_HyperParameters implements _HyperParameters {
 
 abstract class _HyperParameters implements HyperParameters {
   const factory _HyperParameters(
-      {@JsonKey(name: "batch_size")
+      {@JsonKey(name: 'batch_size')
           final String? batchSize,
-      @JsonKey(name: "learning_rate_multiplier")
+      @JsonKey(name: 'learning_rate_multiplier')
           final double? learningRateMultiplier,
-      final int? nEpochs,
-      @JsonKey(name: "prompt_loss_weight")
+      @JsonKey(name: 'n_epochs')
+          final int? nEpochs,
+      @JsonKey(name: 'prompt_loss_weight')
           final double? promptLossWeight}) = _$_HyperParameters;
 
   factory _HyperParameters.fromJson(Map<String, dynamic> json) =
       _$_HyperParameters.fromJson;
 
   @override
-  @JsonKey(name: "batch_size")
+  @JsonKey(name: 'batch_size')
   String? get batchSize;
   @override
-  @JsonKey(name: "learning_rate_multiplier")
+  @JsonKey(name: 'learning_rate_multiplier')
   double? get learningRateMultiplier;
   @override
+  @JsonKey(name: 'n_epochs')
   int? get nEpochs;
   @override
-  @JsonKey(name: "prompt_loss_weight")
+  @JsonKey(name: 'prompt_loss_weight')
   double? get promptLossWeight;
   @override
   @JsonKey(ignore: true)
