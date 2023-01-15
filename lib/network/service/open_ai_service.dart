@@ -25,6 +25,7 @@ abstract class OpenAIService extends ChopperService {
   };
 
   /// Returns the [OpenAIService] instance.
+  /// 
   /// The [apiToken] parameter is mandatory for every requests.
   /// The [customUri] parameter is used to switch the base path of
   /// the requests.

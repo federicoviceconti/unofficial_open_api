@@ -10,6 +10,8 @@ typedef JsonFactory<T> = T Function(Map<String, dynamic> json);
 /// Custom converter class used by the chopper packge to convert
 /// a JSON to custom type.
 class OpenAITypeConverter extends JsonConverter {
+  /// Required parameter which handle conversion from JSON using
+  /// a custom [Type] parameter as key.
   final Map<Type, JsonFactory> factories;
 
   const OpenAITypeConverter(
@@ -40,6 +42,7 @@ class OpenAITypeConverter extends JsonConverter {
     }
   }
 
+  /// Convert the [Data] model from JSON map
   ResultType _decodeData<ResultType, Item>(Map<String, dynamic> values) {
     final data = Data<Item>.fromJson(values, (p0) {
       if (p0 is Map<String, dynamic>) {
@@ -52,6 +55,7 @@ class OpenAITypeConverter extends JsonConverter {
     return data as ResultType;
   }
 
+  /// Returns the converted type using the [factories] map
   dynamic _decodeMap<T>(Map<String, dynamic> values) {
     final jsonFactory = factories[T];
     if (jsonFactory != null && jsonFactory is JsonFactory<T>) {
@@ -61,9 +65,11 @@ class OpenAITypeConverter extends JsonConverter {
     return null;
   }
 
+  /// Returns a list of custom type
   List<T> _decodeList<T>(Iterable values) =>
       values.where((v) => v != null).map<T>((v) => _decode<T>(v)).toList();
 
+  /// Returns the converted type using the [entity] parameter
   dynamic _decode<T>(entity) {
     if (entity is Iterable) return _decodeList<T>(entity as List);
 
