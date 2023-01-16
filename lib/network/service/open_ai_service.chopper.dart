@@ -126,7 +126,7 @@ class _$OpenAIService extends OpenAIService {
   }
 
   @override
-  Future<Response<File>> getFile(String fileId) {
+  Future<Response<File>> getFile({required String fileId}) {
     final Uri $url = Uri.parse('/v1/files/${fileId}');
     final Request $request = Request(
       'GET',
@@ -195,14 +195,14 @@ class _$OpenAIService extends OpenAIService {
   }
 
   @override
-  Future<Response<Delete>> deleteFineTune({required String fineTuneId}) {
+  Future<Response<DeleteResult>> deleteFineTune({required String fineTuneId}) {
     final Uri $url = Uri.parse('/v1/models/${fineTuneId}');
     final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
     );
-    return client.send<Delete, Delete>($request);
+    return client.send<DeleteResult, DeleteResult>($request);
   }
 
   @override
@@ -233,10 +233,10 @@ class _$OpenAIService extends OpenAIService {
 
   @override
   Future<Response<Data<ImageUrl>>> createImageEdit(
-    List<int> image,
-    String prompt, {
+    List<int> image, {
+    required String prompt,
     List<int>? mask,
-    int? n,
+    int n = 1,
     String? size,
     String? responseFormat,
     String? user,
@@ -247,7 +247,7 @@ class _$OpenAIService extends OpenAIService {
         'prompt',
         prompt,
       ),
-      PartValue<int?>(
+      PartValue<int>(
         'n',
         n,
       ),
@@ -285,14 +285,14 @@ class _$OpenAIService extends OpenAIService {
   @override
   Future<Response<Data<ImageUrl>>> createImageVariation(
     List<int> image, {
-    int? n,
+    int n = 1,
     String? size,
     String? responseFormat,
     String? user,
   }) {
     final Uri $url = Uri.parse('/v1/images/variations');
     final List<PartValue> $parts = <PartValue>[
-      PartValue<int?>(
+      PartValue<int>(
         'n',
         n,
       ),

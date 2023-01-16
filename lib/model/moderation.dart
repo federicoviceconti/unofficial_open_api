@@ -5,6 +5,9 @@ part 'moderation.freezed.dart';
 
 @freezed
 class Moderation with _$Moderation {
+  /// Representation about
+  /// [moderation](https://beta.openai.com/docs/api-reference/moderations)
+  /// data.
   const factory Moderation({
     final String? id,
     final String? model,

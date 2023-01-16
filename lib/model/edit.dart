@@ -7,6 +7,8 @@ part 'edit.freezed.dart';
 
 @freezed
 class Edit with _$Edit {
+  /// Contains the result object for an
+  /// [edit](https://beta.openai.com/docs/api-reference/edits).
   const factory Edit({
     final String? object,
     final int? created,

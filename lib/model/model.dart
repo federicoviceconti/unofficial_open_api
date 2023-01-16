@@ -7,6 +7,9 @@ part 'model.freezed.dart';
 
 @freezed
 class Model with _$Model {
+  /// Returns information about the
+  /// [model](https://beta.openai.com/docs/api-reference/models)
+  /// available.
   const factory Model({
     final String? id,
     final String? object,

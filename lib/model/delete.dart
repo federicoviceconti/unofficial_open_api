@@ -5,6 +5,7 @@ part 'delete.freezed.dart';
 
 @freezed
 class DeleteResult with _$DeleteResult {
+  /// An object used for DELETE results for the APIs.
   const factory DeleteResult({
     final int? id,
     final String? object,

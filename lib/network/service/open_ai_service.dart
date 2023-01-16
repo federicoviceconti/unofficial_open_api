@@ -151,7 +151,7 @@ abstract class OpenAIService extends ChopperService {
   /// Delete a fine-tuned model. You must have the Owner role
   /// in your organization.
   @Delete(path: "/v1/models/{fine_tune_id}")
-  Future<Response<Delete>> deleteFineTune({
+  Future<Response<DeleteResult>> deleteFineTune({
     @Path("fine_tune_id") required String fineTuneId,
   });
 

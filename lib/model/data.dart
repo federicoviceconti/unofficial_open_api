@@ -5,6 +5,18 @@ part 'data.freezed.dart';
 
 @Freezed(genericArgumentFactories: true)
 class Data<T> with _$Data<T> {
+  /// Wrapper object for some responses.
+  ///
+  /// Example:
+  ///
+  /// ```
+  /// {
+  ///   "object": "...",
+  ///   "data": [
+  ///     ...
+  ///   ]
+  /// }
+  /// ```
   const factory Data({
     final List<T>? data,
     final String? object,

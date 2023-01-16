@@ -5,6 +5,9 @@ part 'file.freezed.dart';
 
 @freezed
 class File with _$File {
+  /// Contains the file object.
+  ///
+  /// [More here](https://beta.openai.com/docs/api-reference/files).
   const factory File({
     final String? id,
     final String? object,

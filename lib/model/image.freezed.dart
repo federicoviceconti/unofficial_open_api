@@ -21,6 +21,8 @@ ImageUrl _$ImageUrlFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ImageUrl {
   String? get url => throw _privateConstructorUsedError;
+  @JsonKey(name: 'b64_json')
+  String? get base64Json => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +35,7 @@ abstract class $ImageUrlCopyWith<$Res> {
   factory $ImageUrlCopyWith(ImageUrl value, $Res Function(ImageUrl) then) =
       _$ImageUrlCopyWithImpl<$Res, ImageUrl>;
   @useResult
-  $Res call({String? url});
+  $Res call({String? url, @JsonKey(name: 'b64_json') String? base64Json});
 }
 
 /// @nodoc
@@ -50,11 +52,16 @@ class _$ImageUrlCopyWithImpl<$Res, $Val extends ImageUrl>
   @override
   $Res call({
     Object? url = freezed,
+    Object? base64Json = freezed,
   }) {
     return _then(_value.copyWith(
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      base64Json: freezed == base64Json
+          ? _value.base64Json
+          : base64Json // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -67,7 +74,7 @@ abstract class _$$_ImageUrlCopyWith<$Res> implements $ImageUrlCopyWith<$Res> {
       __$$_ImageUrlCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? url});
+  $Res call({String? url, @JsonKey(name: 'b64_json') String? base64Json});
 }
 
 /// @nodoc
@@ -82,11 +89,16 @@ class __$$_ImageUrlCopyWithImpl<$Res>
   @override
   $Res call({
     Object? url = freezed,
+    Object? base64Json = freezed,
   }) {
     return _then(_$_ImageUrl(
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      base64Json: freezed == base64Json
+          ? _value.base64Json
+          : base64Json // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -95,17 +107,20 @@ class __$$_ImageUrlCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ImageUrl implements _ImageUrl {
-  const _$_ImageUrl({this.url});
+  const _$_ImageUrl({this.url, @JsonKey(name: 'b64_json') this.base64Json});
 
   factory _$_ImageUrl.fromJson(Map<String, dynamic> json) =>
       _$$_ImageUrlFromJson(json);
 
   @override
   final String? url;
+  @override
+  @JsonKey(name: 'b64_json')
+  final String? base64Json;
 
   @override
   String toString() {
-    return 'ImageUrl(url: $url)';
+    return 'ImageUrl(url: $url, base64Json: $base64Json)';
   }
 
   @override
@@ -113,12 +128,14 @@ class _$_ImageUrl implements _ImageUrl {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ImageUrl &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.base64Json, base64Json) ||
+                other.base64Json == base64Json));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, url);
+  int get hashCode => Object.hash(runtimeType, url, base64Json);
 
   @JsonKey(ignore: true)
   @override
@@ -135,12 +152,17 @@ class _$_ImageUrl implements _ImageUrl {
 }
 
 abstract class _ImageUrl implements ImageUrl {
-  const factory _ImageUrl({final String? url}) = _$_ImageUrl;
+  const factory _ImageUrl(
+      {final String? url,
+      @JsonKey(name: 'b64_json') final String? base64Json}) = _$_ImageUrl;
 
   factory _ImageUrl.fromJson(Map<String, dynamic> json) = _$_ImageUrl.fromJson;
 
   @override
   String? get url;
+  @override
+  @JsonKey(name: 'b64_json')
+  String? get base64Json;
   @override
   @JsonKey(ignore: true)
   _$$_ImageUrlCopyWith<_$_ImageUrl> get copyWith =>

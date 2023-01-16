@@ -7,6 +7,9 @@ part 'fine_tune.freezed.dart';
 
 @freezed
 class FineTune with _$FineTune {
+  /// Returns the
+  /// [fine-tune](https://beta.openai.com/docs/api-reference/fine-tunes)
+  /// data.
   const factory FineTune({
     final String? id,
     final String? object,

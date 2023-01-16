@@ -7,6 +7,8 @@ part 'embedding.freezed.dart';
 
 @freezed
 class Embedding with _$Embedding {
+  /// Return
+  /// [embedding data](https://beta.openai.com/docs/api-reference/embeddings).
   const factory Embedding({
     final String? object,
     final String? model,
