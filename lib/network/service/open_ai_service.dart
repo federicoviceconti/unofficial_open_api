@@ -9,8 +9,10 @@ part 'open_ai_service.chopper.dart';
 
 @ChopperApi()
 abstract class OpenAIService extends ChopperService {
+  /// Key used in header
   static const headerKeyAuthentication = 'Authorization';
 
+  /// Factory methods to generate type from JSON
   static const Map<Type, JsonFactory> factories = {
     Usage: Usage.fromJson,
     Permission: Permission.fromJson,
@@ -64,7 +66,9 @@ abstract class OpenAIService extends ChopperService {
   /// Retrieves a model instance, providing basic information about the model such
   /// as the owner and permissioning.
   @Get(path: "/v1/models/{model_id}")
-  Future<Response<Model>> getModel({@Path("model_id") required String modelId});
+  Future<Response<Model>> getModel({
+    @Path("model_id") required String modelId,
+  });
 
   /// Creates a completion for the provided prompt and parameters
   @Post(path: "/v1/completions")
@@ -74,7 +78,9 @@ abstract class OpenAIService extends ChopperService {
 
   /// Creates a new edit for the provided input, instruction, and parameters
   @Post(path: "/v1/edits")
-  Future<Response<Edit>> createEdit(@Body() EditRequest request);
+  Future<Response<Edit>> createEdit(
+    @Body() EditRequest request,
+  );
 
   /// Creates an embedding vector representing the input text.
   @Post(path: "/v1/embeddings")
@@ -105,15 +111,17 @@ abstract class OpenAIService extends ChopperService {
 
   /// Returns information about a specific file.
   @Get(path: "/v1/files/{file_id}")
-  Future<Response<File>> getFile(
-    @Path("file_id") String fileId,
-  );
+  Future<Response<File>> getFile({
+    @Path("file_id") required String fileId,
+  });
 
   /// Creates a job that fine-tunes a specified model from a given dataset.
   /// Response includes details of the enqueued job including job status and
   /// the name of the fine-tuned models once complete.
   @Post(path: "/v1/fine-tunes")
-  Future<Response<FineTune>> createFineTune(@Body() FineTuneRequest request);
+  Future<Response<FineTune>> createFineTune(
+    @Body() FineTuneRequest request,
+  );
 
   /// List your organization's fine-tuning jobs.
   @Get(path: "/v1/fine-tunes")
@@ -126,7 +134,10 @@ abstract class OpenAIService extends ChopperService {
   });
 
   /// Immediately cancel a fine-tune job.
-  @Post(path: "/v1/fine-tunes/{fine_tune_id}/cancel", optionalBody: true)
+  @Post(
+    path: "/v1/fine-tunes/{fine_tune_id}/cancel",
+    optionalBody: true,
+  )
   Future<Response<FineTune>> cancelFineTune({
     @Path("fine_tune_id") required String fineTuneId,
   });
@@ -137,8 +148,8 @@ abstract class OpenAIService extends ChopperService {
     @Path("fine_tune_id") required String fineTuneId,
   });
 
-  /// Delete a fine-tuned model. You must have the Owner role in your
-  /// organization.
+  /// Delete a fine-tuned model. You must have the Owner role
+  /// in your organization.
   @Delete(path: "/v1/models/{fine_tune_id}")
   Future<Response<Delete>> deleteFineTune({
     @Path("fine_tune_id") required String fineTuneId,
@@ -150,32 +161,38 @@ abstract class OpenAIService extends ChopperService {
     @Body() ModerationRequest request,
   );
 
-  /// Creates an image given a prompt.
+  /// Returns an image given a prompt.
   @Post(path: "/v1/images/generations")
   Future<Response<Data<ImageUrl>>> createImage(
     @Body() ImageRequest request,
   );
 
-  /// Creates an edited or extended image given an original image
+  /// Returns an edited or extended image given an original image
   /// and a prompt.
+  ///
+  /// [size] must be one of `256x256`, `512x512`, or `1024x1024`.
+  /// [responseFormat] must be one of `url` or `b64_json`.
   @Post(path: "/v1/images/edits")
   @Multipart()
   Future<Response<Data<ImageUrl>>> createImageEdit(
-    @PartFile("image") List<int> image,
-    @Part("prompt") String prompt, {
+    @PartFile("image") List<int> image, {
+    @Part("prompt") required String prompt,
     @PartFile("mask") List<int>? mask,
-    @Part("n") int? n,
+    @Part("n") int n = 1,
     @Part("size") String? size,
     @Part("response_format") String? responseFormat,
     @Part("user") String? user,
   });
 
-  /// Creates a variation of a given image.
+  /// Returns a variation of a given image.
+  ///
+  /// [size] must be one of `256x256`, `512x512`, or `1024x1024`.
+  /// [responseFormat] must be one of `url` or `b64_json`.
   @Post(path: "/v1/images/variations")
   @Multipart()
   Future<Response<Data<ImageUrl>>> createImageVariation(
     @PartFile("image") List<int> image, {
-    @Part("n") int? n,
+    @Part("n") int n = 1,
     @Part("size") String? size,
     @Part("response_format") String? responseFormat,
     @Part("user") String? user,
