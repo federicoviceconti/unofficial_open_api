@@ -13,7 +13,7 @@ class Model with _$Model {
   const factory Model({
     final String? id,
     final String? object,
-    final String? ownedBy,
+    @JsonKey(name: 'owned_by') final String? ownedBy,
     final List<Permission>? permission,
   }) = _Model;
 

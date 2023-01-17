@@ -22,6 +22,7 @@ Model _$ModelFromJson(Map<String, dynamic> json) {
 mixin _$Model {
   String? get id => throw _privateConstructorUsedError;
   String? get object => throw _privateConstructorUsedError;
+  @JsonKey(name: 'owned_by')
   String? get ownedBy => throw _privateConstructorUsedError;
   List<Permission>? get permission => throw _privateConstructorUsedError;
 
@@ -38,7 +39,7 @@ abstract class $ModelCopyWith<$Res> {
   $Res call(
       {String? id,
       String? object,
-      String? ownedBy,
+      @JsonKey(name: 'owned_by') String? ownedBy,
       List<Permission>? permission});
 }
 
@@ -90,7 +91,7 @@ abstract class _$$_ModelCopyWith<$Res> implements $ModelCopyWith<$Res> {
   $Res call(
       {String? id,
       String? object,
-      String? ownedBy,
+      @JsonKey(name: 'owned_by') String? ownedBy,
       List<Permission>? permission});
 }
 
@@ -133,7 +134,10 @@ class __$$_ModelCopyWithImpl<$Res> extends _$ModelCopyWithImpl<$Res, _$_Model>
 @JsonSerializable()
 class _$_Model implements _Model {
   const _$_Model(
-      {this.id, this.object, this.ownedBy, final List<Permission>? permission})
+      {this.id,
+      this.object,
+      @JsonKey(name: 'owned_by') this.ownedBy,
+      final List<Permission>? permission})
       : _permission = permission;
 
   factory _$_Model.fromJson(Map<String, dynamic> json) =>
@@ -144,6 +148,7 @@ class _$_Model implements _Model {
   @override
   final String? object;
   @override
+  @JsonKey(name: 'owned_by')
   final String? ownedBy;
   final List<Permission>? _permission;
   @override
@@ -195,7 +200,7 @@ abstract class _Model implements Model {
   const factory _Model(
       {final String? id,
       final String? object,
-      final String? ownedBy,
+      @JsonKey(name: 'owned_by') final String? ownedBy,
       final List<Permission>? permission}) = _$_Model;
 
   factory _Model.fromJson(Map<String, dynamic> json) = _$_Model.fromJson;
@@ -205,6 +210,7 @@ abstract class _Model implements Model {
   @override
   String? get object;
   @override
+  @JsonKey(name: 'owned_by')
   String? get ownedBy;
   @override
   List<Permission>? get permission;
