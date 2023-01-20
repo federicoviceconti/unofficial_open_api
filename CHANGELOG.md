@@ -1,3 +1,7 @@
+## 1.0.3
+
+- fix owned_by field serialization
+
 ## 1.0.2
 
 - **BREAKING CHANGE**

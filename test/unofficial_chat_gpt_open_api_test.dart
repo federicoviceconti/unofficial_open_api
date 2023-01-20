@@ -56,7 +56,8 @@ void main() {
       (_) async => Future.value(
         Response<Data<Model>>(
           http.Response(modelJson, 200),
-          Data<Model>.fromJson(jsonDecode(modelJson), (p0) => Model.fromJson(p0 as Map<String, Object?>)),
+          Data<Model>.fromJson(jsonDecode(modelJson),
+              (p0) => Model.fromJson(p0 as Map<String, Object?>)),
         ),
       ),
     );

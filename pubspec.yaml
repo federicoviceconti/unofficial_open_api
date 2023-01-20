@@ -1,6 +1,6 @@
 name: unofficial_open_api
 description: An unofficial Open AI package for Dart using the latest GPT-3 APIs.
-version: 1.0.2
+version: 1.0.3
 homepage: https://www.federicoviceconti.com
 repository: https://github.com/federicoviceconti/unofficial_open_ai
 
