@@ -26,6 +26,7 @@ final response = await service.getModels();
 ```
 
 For more information the sample app into the /example folder.
+The example use the environment variable `API_KEY`, loaded via the `--dart-define`argument.
 
 ## Additional information
 
